@@ -1,7 +1,7 @@
 {
   "name": "frontend-handbook",
   "version": "1.0.0",
-  "description": "desarrollo de frontend para Handbook ",
+  "description": "Desarrollo de Frontend para Handbook",
   "main": "index.js",
   "scripts": {
     "dev": "next -p 3001",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/IsabelaCeballos/Frontend-Handbook.git"
   },
-  "author": "Isabela Ceballos <isaceballos2001@gmail.com>",
+  "author": "Juan Galvis - Miguel Bedoya - Daniela Jurado - Isabela Ceballos",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/IsabelaCeballos/Frontend-Handbook/issues"
