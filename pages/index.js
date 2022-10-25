@@ -1,5 +1,12 @@
+import { HOLA__div, TEXT__p} from './estilos.js';
+
 function HomePage() {
-    return <div>Welcome to Next.js!</div>
+    return(
+        <>
+            <HOLA__div>HandBook</HOLA__div>
+            <TEXT__p>esto es text</TEXT__p>
+        </> 
+    )
 }
 
 export default HomePage
