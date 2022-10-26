@@ -28,7 +28,7 @@ export const CONTENTIMAGE__div = Styled.div`
     justify-content: center;
     align-items: center;
 `
-export const CONTENTBUTTON__div = Styled.button`
+export const CONTENTBUTTON__btn = Styled.button`
     width: 60%;
     display: flex;
     justify-content: space-evenly;

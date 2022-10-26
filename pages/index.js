@@ -7,7 +7,7 @@ import { PRINCIPAL__div,
         TITLE__p, 
         CONTENTP__div, 
         CONTENTIMAGE__div, 
-        CONTENTBUTTON__div} from './estilos.js';
+        CONTENTBUTTON__btn} from './estilos.js';
 
 function HomePage() {
     return(
@@ -19,10 +19,10 @@ function HomePage() {
             <CONTENTIMAGE__div>
                 <Image src={logoPrincipal} alt='logo_app'/>
             </CONTENTIMAGE__div>
-            <CONTENTBUTTON__div>
+            <CONTENTBUTTON__btn>
                 <Image src={logoGoogle} height={20} width={20} />
                 Inicia con Google
-            </CONTENTBUTTON__div>
+            </CONTENTBUTTON__btn>
         </PRINCIPAL__div> 
     )
 }
