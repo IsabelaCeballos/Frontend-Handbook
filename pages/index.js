@@ -20,7 +20,7 @@ function HomePage() {
                 <Image src={logoPrincipal} alt='logo_app'/>
             </CONTENTIMAGE__div>
             <CONTENTBUTTON__btn>
-                <Image src={logoGoogle} height={20} width={20} />
+                <Image src={logoGoogle} alt='logo_google' height={20} width={20} />
                 Inicia con Google
             </CONTENTBUTTON__btn>
         </PRINCIPAL__div> 
