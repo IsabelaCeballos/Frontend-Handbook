@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import Image from 'next/image';
+import { RECT__button } from '../Buttons/index.jsx';
 
 import logoInicio from '../../assets/logo_form.svg';
 
@@ -7,7 +8,9 @@ import { PRINCIPAL__section,
     TEXT__label, 
     DATA__input, 
     DATA__textArea , 
-    CONTENTIMAGE__div} from './forms-style.js';
+    CONTENTIMAGE__div,
+    DATA__file,
+    CONTENTBUTTON__div} from './forms-style.js';
 
 export const Forms = (props) => {
     const {type, action} = props;
@@ -28,11 +31,9 @@ export const Forms = (props) => {
                         <TEXT__label>Número de páginas</TEXT__label>
                         <DATA__input type="number" placeholder="Número de páginas"{...register("numberPages", { required: true })} />
                         <TEXT__label>Descripción - sinopsis</TEXT__label>
-                        <DATA__textArea {...register("description", { required: true })} />
-                        {/*<div>
-                            <p>Fotografía del libro</p>
-                            <DATA__input type="file" {...register("file", { required: true })} />
-                        </div>  */}               
+                        <DATA__textArea {...register("description", { required: true })} />                       
+                        <TEXT__label>Fotografía del libro</TEXT__label>
+                        <DATA__file type="file" {...register("file", { required: true })} />              
                     </PRINCIPAL__section>      
                 :type === "community" ?
                     <PRINCIPAL__section>
@@ -58,6 +59,9 @@ export const Forms = (props) => {
                     </PRINCIPAL__section>   
                 :null
                 }
+                <CONTENTBUTTON__div>
+                    <RECT__button type="submit" fillColorBtn="Rojo">Publicar</RECT__button>
+                </CONTENTBUTTON__div>
             </form>
         </>
     );
