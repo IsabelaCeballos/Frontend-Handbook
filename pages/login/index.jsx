@@ -1,13 +1,12 @@
 import Image from 'next/image';
-import libro from '../src/assets/logo.png';
-import logoPrincipal from '../src/assets/logo_welcome.svg'
-import logoGoogle from '../src/assets/google.svg';
+import logoPrincipal from '../../src/assets/logo_welcome.svg'
+import logoGoogle from '../../src/assets/google.svg';
 
 import { PRINCIPAL__div,
         TITLE__p, 
         CONTENTP__div, 
         CONTENTIMAGE__div, 
-        CONTENTBUTTON__btn} from './estilos.js';
+        CONTENTBUTTON__btn} from './estilos';
 
 function HomePage() {
     return(

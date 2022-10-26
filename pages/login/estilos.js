@@ -1,6 +1,5 @@
-import styled from 'styled-components';
 import Styled from 'styled-components';
-import GlobalStyle from '../src/StylesGlobals/globalStyles';
+import GlobalStyle from '../../src/StylesGlobals/globalStyles';
 
 export const PRINCIPAL__div = Styled.div`
     display: flex;
