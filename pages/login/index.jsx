@@ -16,8 +16,8 @@ import {
 function HomePage() {
 
     const autentication = async () => {
-        //console.log('holi desde autentication');
-        try {
+        console.log('holi desde autentication');
+        /*try {
             const response = await fetch('', {
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function HomePage() {
             const responseJson = await response.json();
         } catch (error) {
             console.error(error);
-        }
+        }*/
     }
 
     return (
