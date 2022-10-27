@@ -18,8 +18,8 @@ export const CONTAINER__nav = Styled.nav`
     background: #F9E9DB;
     border-radius: 20px;
     & a {
-        width: 28px;
-        height: 28px;
+        width: 25px;
+        height: 25px;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -1,11 +1,15 @@
+/*Components */
 import { Menu } from '../../src/components/Menu';
 import { Header } from '../../src/components/Header';
+import { Footer } from '../../src/components/Footer';
 
+/*Assets */
 import { HappyFaceIcon } from '../../src/assets/HappyFace';
 import { AirplaneIcon } from '../../src/assets/Airplane';
 import { EditIcon } from '../../src/assets/Edit';
 import { DeleteIcon } from '../../src/assets/Delete';
 
+/*Syled Components */
 import { RECT__button, 
     CIRC__button} 
 from '../../src/components/Buttons/index';
@@ -32,6 +36,7 @@ export default function Profile() {
             <CIRC__button fillColorBtn="Pancho">
                 <EditIcon/>
             </CIRC__button>
+            <Footer />
         </>
     )
 }

@@ -1,7 +1,10 @@
 import Image from 'next/image';
+
+/*Assets */
 import logoPrincipal from '../../src/assets/logo_welcome.svg'
 import logoGoogle from '../../src/assets/google.svg';
 
+/*Syled Components */
 import { PRINCIPAL__div,
         TITLE__p, 
         CONTENTP__div, 
