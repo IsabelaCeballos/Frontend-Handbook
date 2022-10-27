@@ -1,4 +1,7 @@
 import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+
 import Image from 'next/image';
 import { RECT__button } from '../Buttons/index.jsx';
 
@@ -10,11 +13,28 @@ import { PRINCIPAL__section,
     DATA__textArea , 
     CONTENTIMAGE__div,
     DATA__file,
+    ERROR__p,
     CONTENTBUTTON__div} from './forms-style.js';
+
+    const schema = yup.object({
+        bookName: yup.string().required("campo obligatorio"),
+        autorName: yup.string().required(),
+        numberPages: yup.number().positive("El número de páginas debe ser positivo")
+        .integer("el número de páginas debe ser numérico").required("campo obligatorio"),
+        communityName:  yup.string().required("campo obligatorio"),
+        icono: yup.string().required("campo obligatorio"),
+        eventName: yup.string().required("campo obligatorio"),
+        date: yup.date().required("campo obligatorio"),
+        location: yup.string().required("campo obligatorio"),
+    }).required();
 
 export const Forms = (props) => {
     const {type, action} = props;
-    const { register, handleSubmit } = useForm();
+
+    const { register, handleSubmit, formState:{ errors } } = useForm({
+    resolver: yupResolver(schema)
+    });
+
     const onSubmit = data => console.log(data);
 
     return (
@@ -26,36 +46,59 @@ export const Forms = (props) => {
                     <PRINCIPAL__section>
                         <TEXT__label>Título del libro</TEXT__label>
                         <DATA__input type="text" placeholder="Titulo del libro"{...register("bookName", { required: true })} />
+                        <ERROR__p>{errors.bookName?.message}</ERROR__p>
+                        
                         <TEXT__label>Nombre del autor</TEXT__label>
                         <DATA__input type="text" placeholder="Nombre del autor"{...register("autorName", { required: true })} />
+                        <ERROR__p>{errors.autorName?.message}</ERROR__p>
+
                         <TEXT__label>Número de páginas</TEXT__label>
                         <DATA__input type="number" placeholder="Número de páginas"{...register("numberPages", { required: true })} />
+                        <ERROR__p>{errors.numberPages?.message}</ERROR__p>
+
                         <TEXT__label>Descripción - sinopsis</TEXT__label>
-                        <DATA__textArea {...register("description", { required: true })} />                       
+                        <DATA__textArea {...register("description", { required: true, maxLength: 800 })} />                       
+
                         <TEXT__label>Fotografía del libro</TEXT__label>
-                        <DATA__file type="file" {...register("file", { required: true })} />              
-                    </PRINCIPAL__section>      
+                        <DATA__file type="file" {...register("file", { required: true })} />     
+                        <ERROR__p>{errors.file?.message}</ERROR__p>
+                    </PRINCIPAL__section>   
+                
                 :type === "community" ?
                     <PRINCIPAL__section>
                         <TEXT__label>Nombre de la comunidad</TEXT__label>
                         <DATA__input type="text" placeholder="Nombre de la comunidad "{...register("communityName", { required: true })} />
+                        <ERROR__p>{errors.communityName?.message}</ERROR__p>
+
                         <TEXT__label>Descripción</TEXT__label>
-                        <DATA__textArea {...register("descriptionCommunity", { required: true })} />
+                        <DATA__textArea {...register("descriptionCommunity", { required: true, maxLength: 800 })} />
+                        
                         <TEXT__label>Ícono de la comunidad</TEXT__label>        
-                        <DATA__input type="text" placeholder="Ícono"{...register("icono", { required: true })} />               
-                    </PRINCIPAL__section>   
+                        <DATA__input type="text" placeholder="Ícono"{...register("icono", { required: true })} />
+                        <ERROR__p>{errors.icono?.message}</ERROR__p>
+
+                    </PRINCIPAL__section> 
+                    
                 :type === "event" ?
                     <PRINCIPAL__section>
                         <TEXT__label>Nombre del evento</TEXT__label>
                         <DATA__input type="text" placeholder="Nombre del evento "{...register("eventName", { required: true })} />
+                        <ERROR__p>{errors.eventName?.message}</ERROR__p>
+                        
                         <TEXT__label>Descripción</TEXT__label>
-                        <DATA__textArea {...register("descriptionEvent", { required: true })} />
+                        <DATA__textArea {...register("descriptionEvent", { required: true, maxLength: 800 })} />
+                                                
                         <TEXT__label>Fecha del evento</TEXT__label>
                         <DATA__input type="date" placeholder="Fecha"{...register("date", { required: true })} />
+                        <ERROR__p>{errors.date?.message}</ERROR__p>
+                        
                         <TEXT__label>Ubicación del evento</TEXT__label>
                         <DATA__input type="text" placeholder="Location"{...register("location", { required: true })} />
+                        <ERROR__p>{errors.location?.message}</ERROR__p>
+                        
                         <TEXT__label>Ícono del evento</TEXT__label>        
-                        <DATA__input type="text" placeholder="Ícono"{...register("icono", { required: true })} />      
+                        <DATA__input type="text" placeholder="Ícono"{...register("icono", { required: true })} /> 
+                        <ERROR__p>{errors.icono?.message}</ERROR__p>     
                     </PRINCIPAL__section>   
                 :null
                 }

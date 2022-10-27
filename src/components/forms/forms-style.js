@@ -67,3 +67,10 @@ export const CONTENTBUTTON__div = Styled.div`
     padding: 0rem 1.5rem;
     box-sizing: border-box;
 `
+export const ERROR__p = Styled.p`
+    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0.2rem 0.8rem;
+    color: ${GlobalStyle.COLORS.Rojo};
+`

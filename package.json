@@ -4,7 +4,7 @@
   "description": "Desarrollo de Frontend para Handbook",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 3001",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -20,11 +20,13 @@
   },
   "homepage": "https://github.com/IsabelaCeballos/Frontend-Handbook#readme",
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "next": "^12.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.0.6"
