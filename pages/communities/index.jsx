@@ -1,6 +1,8 @@
+/*Components */
 import { Menu } from '../../src/components/Menu';
 import { SearchBar } from '../../src/components/SearchBar';
 import { Header } from '../../src/components/Header';
+import { Footer } from '../../src/components/Footer';
 
 export default function Communities() {
     return (
@@ -9,6 +11,8 @@ export default function Communities() {
             <SearchBar placeHolder="Buscar comunidad..."/>
             <Menu />
             <p>Hola desde comunidades</p>
+            <Footer />
+
         </>
     )
 }
