@@ -27,7 +27,7 @@ export const CONTENTIMAGE__div = Styled.div`
     justify-content: center;
     align-items: center;
 `
-export const CONTENTBUTTON__btn = Styled.button`
+export const CONTENTA__a = Styled.a`
     width: 60%;
     display: flex;
     justify-content: space-evenly;
@@ -35,7 +35,8 @@ export const CONTENTBUTTON__btn = Styled.button`
     padding: 0.5rem;
     border-radius: 0.9rem;
     border: none;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    text-decoration: none;
     background: ${GlobalStyle.COLORS.Rojo};
     font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};

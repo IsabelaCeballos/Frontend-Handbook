@@ -10,26 +10,26 @@ import {
     TITLE__p,
     CONTENTP__div,
     CONTENTIMAGE__div,
-    CONTENTBUTTON__btn
+    CONTENTA__a
 } from './estilos';
+import Link from 'next/link';
 
 function HomePage() {
 
     const autentication = async () => {
         console.log('holi desde autentication');
-        /*try {
-            const response = await fetch('', {
+        try {
+            const response = await fetch('localhost:3001/auth/google', {
                 headers: {
                     'Content-Type': 'application/json',
-                    //'Authorization': `Bearer ${userAutentication.token}`
                 },
                 method: 'GET',
-                //body: JSON.stringify(enviarPlan)
             });
             const responseJson = await response.json();
+            console.log(responseJson);
         } catch (error) {
             console.error(error);
-        }*/
+        }
     }
 
     return (
@@ -41,10 +41,10 @@ function HomePage() {
             <CONTENTIMAGE__div>
                 <Image src={logoPrincipal} alt='logo_app' />
             </CONTENTIMAGE__div>
-            <CONTENTBUTTON__btn onClick={() => autentication()}>
+            <CONTENTA__a href='http://localhost:3001/auth/google'>
                 <Image src={logoGoogle} alt='logo_google' height={20} width={20} />
                 Inicia con Google
-            </CONTENTBUTTON__btn>
+            </CONTENTA__a>
         </PRINCIPAL__div>
     )
 }
