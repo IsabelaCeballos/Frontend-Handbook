@@ -12,6 +12,7 @@ import {
     CONTENTIMAGE__div,
     CONTENTA__a
 } from './estilos';
+
 import Link from 'next/link';
 
 function HomePage() {
