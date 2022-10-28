@@ -21,9 +21,9 @@ export const RECT__button = (props) => {
         Usando un ancho especifico
         <RECT__button fillColorBtn="Verde" width="12rem">Crear comunidad</RECT__button>
     */
-    const {fillColorBtn, width, children} = props;
+    const {fillColorBtn, fontColor, width, children, ...otherProps} = props;
     return (
-        <RECTANGLE__button fillColorBtn={fillColorBtn} width={width}>{children}</RECTANGLE__button>
+        <RECTANGLE__button {...otherProps} fillColorBtn={fillColorBtn} fontColor={fontColor} width={width}>{children}</RECTANGLE__button>
     );
 }
 export const CIRC__button = (props) => {
@@ -38,9 +38,9 @@ export const CIRC__button = (props) => {
             <AirplaneIcon/>
         </CIRC__button>
     */
-    const {fillColorBtn, children} = props;
+    const {fillColorBtn, children, ...otherProps} = props;
     return (
-        <CIRCLE__button fillColorBtn={fillColorBtn}>{children}</CIRCLE__button>
+        <CIRCLE__button {...otherProps} fillColorBtn={fillColorBtn}>{children}</CIRCLE__button>
     );
 }
 export const LEFT_SIDE__section = (props) => {

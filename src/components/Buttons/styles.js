@@ -5,14 +5,14 @@ export const RECTANGLE__button = Styled.button`
     width: ${props => props.width};
     /* display : block; */
     /* margin: 1rem; */
-    color: ${GlobalStyle.COLORS.Blanco};
+    color: ${props => GlobalStyle.COLORS[props.fontColor] || props.fontColor || GlobalStyle.COLORS.Blanco };
     font-weight: bold;
     padding: 0 1rem;
     font-size: 13px;
     height: 1.6rem;
     border: none;
     border-radius: 20px;
-    background: ${props => GlobalStyle.COLORS[props.fillColorBtn]};
+    background: ${props => GlobalStyle.COLORS[props.fillColorBtn] ||  props.fillColorBtn};
     cursor: pointer;
     &:hover {
         opacity: 0.7;
