@@ -15,7 +15,9 @@ export default function Communities() {
             <Header />
             <SearchBar placeHolder="Buscar comunidad..." />
             <CONTENTBUTTON__div>
-                <RECT__button fillColorBtn="Rojo" width="12rem">Crear comunidad</RECT__button>
+                <a href='/newCommunity'>
+                    <RECT__button fillColorBtn="Rojo" width="12rem">Crear comunidad</RECT__button>
+                </a>
             </CONTENTBUTTON__div>
             <Social type="community" />
             <Menu />
