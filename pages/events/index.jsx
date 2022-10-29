@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 /*Components */
 import { Menu } from '../../src/components/Menu';
 import { SearchBar } from '../../src/components/SearchBar';
@@ -15,7 +17,9 @@ export default function Events() {
             <Header />
             <SearchBar placeHolder="Buscar evento..." />
             <CONTENTBUTTON__div>
-                <RECT__button fillColorBtn="Verde" width="12rem">Crear evento</RECT__button>
+                <a href='/newEvent'>
+                    <RECT__button fillColorBtn="Verde" width="12rem">Crear evento</RECT__button>
+                </a>
             </CONTENTBUTTON__div>
             <Social type="event" />
             <Menu />

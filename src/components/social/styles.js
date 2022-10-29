@@ -10,6 +10,7 @@ export const TITLE__h2 = Styled.h2`
     font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
     font-size: ${GlobalStyle.FONT_SIZES.Grande};
     font-weight: 500;
+    text-align: center;
 `
 export const CONTENTCARD__div = Styled.div`
     width: 80%;
