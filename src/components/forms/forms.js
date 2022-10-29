@@ -108,27 +108,27 @@ export const Forms = (props) => {
                 :type === "community" ?
                     <PRINCIPAL__section>
                         <TEXT__label>Nombre de la comunidad</TEXT__label>
-                        <DATA__input type="text" placeholder="Nombre de la comunidad "{...register("communityName", { required: true })} />
+                        <DATA__input type="text" placeholder="Nombre de la comunidad "{...register("name", { required: true })} />
                         {errors.communityName?<ERROR__p>El nombre de la comunidad es obligatorio</ERROR__p>:null}
 
                         <TEXT__label>Descripción</TEXT__label>
-                        <DATA__textArea {...register("descriptionCommunity", { required:true, maxLength: 200 })} />
+                        <DATA__textArea {...register("description", { required:true, maxLength: 200 })} />
                         {errors.descriptionCommunity?.type == 'required' && <ERROR__p>La descripción de la comunidad es obligatoria</ERROR__p>}
                         {errors.descriptionCommunity?.type == 'maxLength' && <ERROR__p>La descripción no debe contener más de 200 caracteres</ERROR__p>}
 
                         <TEXT__label>Ícono de la comunidad</TEXT__label>        
-                        <DATA__input type="text" placeholder="Ícono"{...register("icono", { required: true })} />
+                        <DATA__input type="text" placeholder="Ícono"{...register("icon", { required: true })} />
                         {errors.icono?<ERROR__p>El ícono de la comunidad es obligatorio</ERROR__p>:null}
 
                     </PRINCIPAL__section>                     
                 :type === "event" ?
                     <PRINCIPAL__section>
                         <TEXT__label>Nombre del evento</TEXT__label>
-                        <DATA__input type="text" placeholder="Nombre del evento "{...register("eventName", { required: true })} />
+                        <DATA__input type="text" placeholder="Nombre del evento "{...register("name", { required: true })} />
                         {errors.eventName?<ERROR__p>El nombre del evento es obligatorio</ERROR__p>:null}
                         
                         <TEXT__label>Descripción</TEXT__label>
-                        <DATA__textArea {...register("descriptionEvent", {required: true, maxLength: 200 })} />
+                        <DATA__textArea {...register("description", {required: true, maxLength: 200 })} />
                         {errors.descriptionEvent?.type == 'required' && <ERROR__p>La descripción del evento es obligatoria</ERROR__p>}
                         {errors.descriptionEvent?.type == 'maxLength' && <ERROR__p>La descripción no debe contener más de 200 caracteres</ERROR__p>}
 
@@ -141,7 +141,7 @@ export const Forms = (props) => {
                         {errors.location?<ERROR__p>La ubicación del evento es obligatoria</ERROR__p>:null}
                         
                         <TEXT__label>Ícono del evento</TEXT__label>        
-                        <DATA__input type="text" placeholder="Ícono"{...register("icono", { required: true })} /> 
+                        <DATA__input type="text" placeholder="Ícono"{...register("icon", { required: true })} /> 
                         {errors.icono?<ERROR__p>El ícono del evento es obligatoria</ERROR__p>:null}
                     </PRINCIPAL__section>   
                 :null
