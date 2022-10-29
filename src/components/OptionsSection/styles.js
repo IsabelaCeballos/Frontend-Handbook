@@ -11,7 +11,7 @@ export const CONTAINER__div = Styled.div`
     margin: 0 auto;
 `
 export const CONTAINER_TYPE__div= Styled.div`
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,4 +55,34 @@ export const TEMPLATE_IMG_BOOK__div = Styled.div`
         gap: 15px;
         bottom: 3px;
     }
+`
+export const TEMPLATE_COMMUNITY_EVENT__div= Styled.div`
+    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    position: relative;
+    height: 8rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`
+export const HEADER_DATA__div = Styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80%;
+    padding: 10px;
+    box-sizing: border-box;
+    & span {
+        font-size: 23px;
+    }
+    & p {
+        font-size: 15px;
+    }
+`
+export const CONTAINER_BTN__div = Styled.div`
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    bottom: -15px;
 `

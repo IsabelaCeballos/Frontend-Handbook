@@ -5,10 +5,6 @@ import { Footer } from '../../src/components/Footer';
 import { HeaderProfile } from '../../src/components/HeaderProfile';
 import { OptionsSection } from '../../src/components/OptionsSection';
 
-/*Assets */
-
-/*Syled Components */
-
 export default function Profile() {
     return (
         <>
@@ -16,7 +12,6 @@ export default function Profile() {
             <HeaderProfile/>
             <OptionsSection />
             <Menu />
-            
             <Footer />
         </>
     )

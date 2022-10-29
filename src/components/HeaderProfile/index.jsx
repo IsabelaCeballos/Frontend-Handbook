@@ -1,6 +1,8 @@
 import Cookie from 'js-cookie';
-
+import Image from 'next/image'
 import { useEffect, useState } from "react";
+
+/*styled Components */
 import { CONTAINER__div } from './styles';
 
 export const HeaderProfile = () => {
@@ -23,12 +25,12 @@ export const HeaderProfile = () => {
     return (
         <>
             {
-                dataUser ?
-                    <CONTAINER__div>
-                        <img src={dataUser.photo} alt="User profile image from Google" />
-                        <h3>{dataUser.name}</h3>
-                    </CONTAINER__div> 
-                : <p>Cargando...</p>
+            dataUser ?
+                <CONTAINER__div>
+                    <Image src={dataUser.photo} width={80} height={80} alt="User profile image from Google" />
+                    <h3>{dataUser.name}</h3>
+                </CONTAINER__div> 
+            : <p>Cargando...</p>
             }
         </>
     )
