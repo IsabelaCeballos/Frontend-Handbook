@@ -7,6 +7,7 @@ import { Social } from '../../src/components/social/social.js';
 import { Header } from '../../src/components/Header';
 import { Footer } from '../../src/components/Footer';
 import { RECT__button } from '../../src/components/Buttons/index.jsx'
+import Head from 'next/head';
 
 /*Syled Components */
 import { CONTENTBUTTON__div } from './estilos.js';
@@ -14,6 +15,7 @@ import { CONTENTBUTTON__div } from './estilos.js';
 export default function Events() {
     return (
         <>
+            <Head> <title>Eventos</title> </Head>
             <Header />
             <SearchBar placeHolder="Buscar evento..." />
             <CONTENTBUTTON__div>

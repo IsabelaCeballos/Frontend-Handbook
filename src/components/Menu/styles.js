@@ -17,6 +17,7 @@ export const CONTAINER__nav = Styled.nav`
     z-index: 99;
     background: #F9E9DB;
     border-radius: 20px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     & a {
         width: 25px;
         height: 25px;

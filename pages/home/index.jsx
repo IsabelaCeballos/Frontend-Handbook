@@ -3,7 +3,7 @@ import { Menu } from '../../src/components/Menu';
 import { SearchBar } from '../../src/components/SearchBar';
 import { Header } from '../../src/components/Header';
 import { SelectBook } from '../../src/components/SelectBook';
-
+import Head from 'next/head';
 
 export default function Home() {
     const DEFAULT_DATA = {
@@ -15,6 +15,7 @@ export default function Home() {
     }
     return (
         <>
+            <Head> <title>Inicio</title> </Head>
             <Header />
             <SearchBar placeHolder="Quiero leer..."/>
             <SelectBook DATA={DEFAULT_DATA} />
