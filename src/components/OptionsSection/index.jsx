@@ -42,7 +42,7 @@ export const OptionsSection = () => {
         setMyCommunities(data.result);
     }
     const getCommunities = async () => {
-        const response = await fetch('http://localhost:3001/communities', {
+        const response = await fetch('http://localhost:3001/member/635b02914ad905d13b414a4c', {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -50,7 +50,8 @@ export const OptionsSection = () => {
             }
         });
         const data = await response.json();
-        setCommunities(data.result);
+        console.log(data.result[0].Id_Communities);
+        setCommunities(data.result[0].Id_Communities);
     }
     const getMyEvents = async () => {
         const response = await fetch('http://localhost:3001/my_events', {
@@ -64,7 +65,7 @@ export const OptionsSection = () => {
         setMyEvents(data.result);
     }
     const getEvents = async () => {
-        const response = await fetch('http://localhost:3001/events', {
+        const response = await fetch('http://localhost:3001/other_events', {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
