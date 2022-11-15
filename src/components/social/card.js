@@ -12,6 +12,9 @@ import {
     CONTENTBUTTON__div,
 } from './styles';
 
+/** ALERTS */
+import Swal from 'sweetalert2';
+
 export const Card = ({tipo, value }) => {
 
     const newMemberEvent = async (id) => {
@@ -29,6 +32,14 @@ export const Card = ({tipo, value }) => {
         } catch (error) {
             console.error(error);
         }
+        Swal.fire({
+            icon: "success",
+            title: 'Ahora eres un participante más...',
+            iconColor: '#FF8594',
+            confirmButtonColor: '#FF8594',
+            confirmButtonText: 'OK',
+            width: 400,
+        })
     };
 
     const newMemberCommunity = async (id) => {
@@ -46,6 +57,14 @@ export const Card = ({tipo, value }) => {
         } catch (error) {
             console.error(error);
         }
+        Swal.fire({
+            icon: "success",
+            title: 'Te uniste correctamente',
+            iconColor: '#75C0AA',
+            confirmButtonColor: '#75C0AA',
+            confirmButtonText: 'OK',
+            width: 400,
+        })
     };  
 
     return (
