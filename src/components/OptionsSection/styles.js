@@ -18,7 +18,7 @@ export const CONTAINER_TYPE__div= Styled.div`
     margin: 1.5rem auto;
 `
 export const CHOOSE_SECONDARY__button = Styled.button`
-    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     font-weight: 500;
     color: ${GlobalStyles.COLORS.Negro};
     font-size: ${GlobalStyles.FONT_SIZES.Mediana};
@@ -57,7 +57,7 @@ export const TEMPLATE_IMG_BOOK__div = Styled.div`
     }
 `
 export const TEMPLATE_COMMUNITY_EVENT__div= Styled.div`
-    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     position: relative;
     height: 8rem;
     border-radius: 10px;

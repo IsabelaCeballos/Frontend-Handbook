@@ -4,7 +4,7 @@ import GlobalStyles from '../../../StylesGlobals/globalStyles';
 export const CONTAINER__section = Styled.section`
     width: 80%;
     align-items: center;
-    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     margin: 0 auto 1rem;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ export const DESCRIPTION__btn = Styled.button`
     border-radius: 6px;
     color: black;
     font-size: 14px;
-    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     outline: none;
     cursor: pointer;
     border: ${props => props.border=="2px" ? "2px solid #EAB686": "none"};

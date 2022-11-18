@@ -6,7 +6,7 @@ export const RECTANGLE__button = Styled.button`
     /* display : block; */
     /* margin: 1rem; */
     color: ${props => GlobalStyle.COLORS[props.fontColor] || props.fontColor || GlobalStyle.COLORS.Blanco };
-    font-weight: 600;
+    font-weight: 500;
     font-size: 15px;
     padding: 0 1rem;
     height: 2rem;

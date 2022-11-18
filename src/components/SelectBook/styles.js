@@ -10,7 +10,7 @@ export const CONTAINER__section = Styled.section`
     padding: 1rem 2.8rem;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     text-align: center;
 `
 export const DETAILS_USER__div = Styled.div`

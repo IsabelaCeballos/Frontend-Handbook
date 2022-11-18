@@ -9,6 +9,6 @@ export const CONTAINER__section = Styled.section`
 export const TEXT__p = Styled.p`
     display: ${props => props.show == "show" ? "block": "none"};
     text-align: center;
-    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     margin: 0 0 1rem;
 `

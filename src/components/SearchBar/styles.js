@@ -21,7 +21,7 @@ export const SEARCH__input = Styled.input`
     background: none;
     color: #bb814c;
     outline: none;
-    font-weight: bold;
+    font-weight: 500;
     &::placeholder {
         color: ${GlobalStyles.COLORS.Pancho};
     }

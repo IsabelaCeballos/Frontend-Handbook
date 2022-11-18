@@ -8,7 +8,7 @@ export const CONTAINER__div = Styled.div`
     align-items: center;
     margin: 1rem 0;
     gap: 10px;
-    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     & img {
         width: 5rem;
         height: 5rem;

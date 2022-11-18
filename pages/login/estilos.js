@@ -9,7 +9,7 @@ export const PRINCIPAL__div = Styled.div`
     margin-top: 3rem;
 `
 export const TITLE__p = Styled.p`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: 25px;
     font-weight: 500;
 `
@@ -18,7 +18,7 @@ export const CONTENTP__div = Styled.div`
     padding-left: 2.5rem;
     padding-right:2.5rem;
     text-align: center;
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
 `
 export const CONTENTIMAGE__div = Styled.div`
@@ -38,7 +38,7 @@ export const CONTENTA__a = Styled.a`
     margin-top: 3rem;
     text-decoration: none;
     background: ${GlobalStyle.COLORS.Rojo};
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
     color: ${GlobalStyle.COLORS.Blanco};
 `

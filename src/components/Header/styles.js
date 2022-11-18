@@ -12,6 +12,6 @@ export const CONTAINER__header = Styled.header`
 `
 export const NAME_APP__h1 = Styled.h1`
     font-weight: 500;
-    font-family: ${GlobalStyles.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     font-size: 25px;
 `

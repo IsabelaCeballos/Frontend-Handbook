@@ -42,7 +42,7 @@ export const OptionsSection = () => {
         setMyCommunities(data.result);
     }
     const getCommunities = async () => {
-        const response = await fetch('http://localhost:3001/member/635b02914ad905d13b414a4c', {
+        const response = await fetch('http://localhost:3001/member', {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',

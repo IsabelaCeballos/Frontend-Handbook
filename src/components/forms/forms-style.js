@@ -9,14 +9,14 @@ export const PRINCIPAL__section = Styled.section`
     box-sizing: border-box;
 `
 export const TEXT__label = Styled.label`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
     font-weight: 500;
     margin: 0.6rem;
 `
 export const DATA__input = Styled.input`
     width: 100%;
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
     margin-top: 0.4rem;
     margin-bottom: 0.4rem;
@@ -28,7 +28,7 @@ export const DATA__input = Styled.input`
 `
 export const DATA__file = Styled.input`
     width: 100%;
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
     margin-top: 0.4rem;
     padding: 0.4rem 0.8rem;
@@ -39,7 +39,7 @@ export const DATA__file = Styled.input`
 export const DATA__textArea = Styled.textarea`
     width: 100%;
     height: 5rem;
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
     margin: 0.4rem;
     border-radius:1rem;
@@ -68,7 +68,7 @@ export const CONTENTBUTTON__div = Styled.div`
     box-sizing: border-box;
 `
 export const ERROR__p = Styled.p`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: 13px;
     font-weight: 500;
     margin: 0.2rem 0.8rem;

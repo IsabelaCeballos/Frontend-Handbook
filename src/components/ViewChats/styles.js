@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 import GlobalStyle from '../../StylesGlobals/globalStyles.js';
 
 export const TITLE__h2 = Styled.h2`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Grande};
     font-weight: 500;
     text-align: center;
@@ -34,13 +34,13 @@ export const CONTENTTEXT__div = Styled.div`
 `
 
 export const TEXTTITLE__p = Styled.p`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
     font-weight: 600;
     margin-bottom: 0.3rem;
 `
 export const TEXTCONTENT__p = Styled.p`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: 14px;
     text-align: justify;
 `

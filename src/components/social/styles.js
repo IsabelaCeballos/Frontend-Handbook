@@ -7,7 +7,7 @@ export const PRINCIPAL__div = Styled.div`
     align-items: center;
 `
 export const TITLE__h2 = Styled.h2`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Grande};
     font-weight: 500;
     text-align: center;
@@ -35,22 +35,22 @@ export const CONTENTIMAGE__div = Styled.div`
 `
 
 export const TEXTTITLEICON__p = Styled.p`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: 25px;
 `
 export const TEXTTITLE__p = Styled.p`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
     font-weight: 600;
     margin-left: 0.5rem;
 `
 export const TEXTCONTENT__p = Styled.p`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
     text-align: justify;
 `
 export const TEXTTITLELOCATION__p = Styled.p`
-    font-family: ${GlobalStyle.TYPOGRAPIC.roboto};
+    /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: 13px;
     font-weight: 600;
     margin-left: 0.5rem;
