@@ -27,6 +27,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
     "styled-components": "^5.3.6",
+    "sweetalert2": "^11.6.8",
     "yup": "^0.32.11"
   },
   "devDependencies": {
