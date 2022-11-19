@@ -16,6 +16,9 @@ import { PRINCIPAL__section,
     ERROR__p,
     CONTENTBUTTON__div} from './forms-style.js';
 
+/** ALERTS */
+import Swal from 'sweetalert2';
+
 export const Forms = (props) => {
     const {type, action} = props;
 
@@ -39,6 +42,14 @@ export const Forms = (props) => {
             } catch (error) {
                 console.error(error);
             }
+            Swal.fire({
+                icon: "success",
+                title: 'Tú libro se ha publicado correctamente',
+                iconColor: '#FF8594',
+                confirmButtonColor: '#FF8594',
+                confirmButtonText: 'OK',
+                width: 400,
+            })
         }else if( type == "community"){
             try {
                 const response = await fetch('http://localhost:3001/new_community',{
@@ -56,6 +67,14 @@ export const Forms = (props) => {
             } catch (error) {
                 console.error(error);
             }
+            Swal.fire({
+                icon: "success",
+                title: 'La comunidad se ha creado exitosamente',
+                iconColor: '#FF8594',
+                confirmButtonColor: '#FF8594',
+                confirmButtonText: 'OK',
+                width: 400,
+            })
         }else{
             try {
                 const response = await fetch('http://localhost:3001/new_event',{
@@ -73,6 +92,14 @@ export const Forms = (props) => {
             } catch (error) {
                 console.error(error);
             }
+            Swal.fire({
+                icon: "success",
+                title: 'El evento se ha creado exitosamente',
+                iconColor: '#FF8594',
+                confirmButtonColor: '#FF8594',
+                confirmButtonText: 'OK',
+                width: 400,
+            })
         }
     };
 
