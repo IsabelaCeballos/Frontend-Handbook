@@ -5,15 +5,13 @@ import { CONTAINER__div } from './styles';
 
 
 export const HeaderProfile = ({photoUser, nameUser}) => {
-    const myLoader = () => {
-        return photoUser;
-    }
+    
     return (
         <>
             {
             photoUser ?
                 <CONTAINER__div>
-                    <Image loader={myLoader} src={photoUser} width={80} height={80} alt="User profile image from Google" />
+                    <Image src={photoUser} width={80} height={80} alt="Image user profile Google" />
                     <h3>{nameUser}</h3>
                 </CONTAINER__div> 
             : <p>Cargando...</p>

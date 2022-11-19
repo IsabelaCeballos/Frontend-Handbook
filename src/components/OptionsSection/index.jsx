@@ -4,7 +4,7 @@ import { useState } from 'react';
 /*Components */
 import { OptionBar } from './OptionBar';
 import { OptionsType } from './OptionsType';
-import {PreviewBook} from './PreviewBook';
+import {PreviewElements} from './PreviewElements';
 
 export const OptionsSection = () => {
     /*Stats options */
@@ -103,14 +103,19 @@ export const OptionsSection = () => {
                 getCommunities = {getCommunities}
                 getEvents = {getEvents}
             />
-            <PreviewBook
+            <PreviewElements
                 choose={choose}
                 chooseSecondary={chooseSecondary}
                 dataBook = {dataBook}
+                setDataBook = {setDataBook}
                 myCommunities = {myCommunities}
+                setMyCommunities = {setMyCommunities}
                 communities = {communities}
+                setCommunities = {setCommunities}
                 myEvents = {myEvents}
+                setMyEvents = {setMyEvents}
                 events = {events}
+                setEvents = {setEvents}
                 getMyDataBooks = {getMyDataBooks}
             />
         </>

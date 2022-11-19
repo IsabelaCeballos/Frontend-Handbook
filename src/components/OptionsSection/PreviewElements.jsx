@@ -19,14 +19,14 @@ import {
     CONTAINER_BTN__div
 } from './styles';
 
-export const PreviewBook = ({
+export const PreviewElements = ({
     choose,
     chooseSecondary,
-    dataBook,
-    myCommunities,
-    communities,
-    myEvents,
-    events,
+    dataBook, setDataBook,
+    myCommunities, setMyCommunities,
+    communities, setCommunities,
+    myEvents, setMyEvents,
+    events, setEvents,
     getMyDataBooks
 }) => {
 
@@ -86,26 +86,91 @@ export const PreviewBook = ({
             if (result.isConfirmed) {
                 if(element === "book"){
                     deleteBookRequest(id);
+                    let books = [];
+                    dataBook.map((elem)=>{elem._id !== id ? books.push(elem):null});
+                    setDataBook(books);
+                    
                 }else if(element === "community") {
                     deleteCommunityRequest(id);
+                    let communities = [];
+                    myCommunities.map((elem)=>{elem._id !== id ? communities.push(elem):null});
+                    setMyCommunities(communities);
                 }else {
                     deleteEventRequest(id);
+                    let events = [];
+                    myEvents.map((elem)=>{elem._id !== id ? events.push(elem):null});
+                    setMyEvents(events);
                 }
                 Swal.fire(
                     '¡Eliminado!',
                     'Tu elemento ha sido eliminado con exito',
                     'success'
                 )
-                // getMyDataBooks();
             }
         })
     }
-    function editBtnAction() {
+
+    const exitEventRequest = async (id) => {
+        const response = await fetch(`http://localhost:3001/remove_participant/${id}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + Cookie.get('JWT'),
+            },
+            method: 'DELETE'
+        });
+        const data = await response.json();
+        console.log(data);
+    }
+    const exitCommunityRequest = async (id) => {
+        // const response = await fetch(`http://localhost:3001/remove_participant/${id}`, {
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //         'Authorization': 'Bearer ' + Cookie.get('JWT'),
+        //     },
+        //     method: 'DELETE'
+        // });
+        // const data = await response.json();
+        // console.log(data);
+    }
+    const exitBtnAction = (id, element) => {
+        Swal.fire({
+            title: '!Cuidado!',
+            text: `Estas a punto de salirte de ${element==="event"? "este evento":"esta comunidad"} ¿De verdad quieres hacerlo?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#756dd1',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Salir',
+            cancelButtonText: "Cancelar"
+        }).then (async (result) => {
+            if (result.isConfirmed) {
+                if(element === "community") {
+                    console.log("jiji aun no")
+                    // exitCommunityRequest(id);
+                    // let communities = [];
+                    // communities.map((elem)=>{elem._id !== id ? communities.push(elem):null});
+                    // setCommunities(communities);
+                }else {
+                    exitEventRequest(id);
+                    let eventsArray = [];
+                    events.map((elem)=>{elem._id !== id ? eventsArray.push(elem):null});
+                    setEvents(eventsArray);
+                }
+                Swal.fire(
+                    '¡Saliste!',
+                    `Ahora ya no haces parte de ${element==="community"?"esta comunidad": "este evento"}`,
+                    'success'
+                )
+            }
+        })
+    }
+
+    const editBtnAction = (id, element) => {
         console.log("editar")
     }
-    function exitBtnAction() {
-        console.log("eliminar")
-    }
+
 
     return (
         <CONTAINER_BOOK__section>
@@ -167,7 +232,7 @@ export const PreviewBook = ({
                                 <p>{community.name}</p>
                             </HEADER_DATA__div>
                             <CONTAINER_BTN__div>
-                                <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction()}>
+                                <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction(community._id, "community")}>
                                     Salir
                                 </RECT__button>
                             </CONTAINER_BTN__div>
@@ -204,7 +269,7 @@ export const PreviewBook = ({
                                 <p>{event.name}</p>
                             </HEADER_DATA__div>
                             <CONTAINER_BTN__div>
-                                <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction()}>
+                                <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction(event._id, "event")}>
                                     Salir
                                 </RECT__button>
                             </CONTAINER_BTN__div>
