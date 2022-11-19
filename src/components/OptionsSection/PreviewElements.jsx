@@ -77,8 +77,9 @@ export const PreviewElements = ({
             title: '!Cuidado!',
             text: "Estas a punto de eliminar este elemento ¿De verdad quieres hacerlo?",
             icon: 'warning',
+            iconColor: "#75C0AA",
             showCancelButton: true,
-            confirmButtonColor: '#756dd1',
+            confirmButtonColor: '#75C0AA',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Eliminar',
             cancelButtonText: "Cancelar"
@@ -102,9 +103,14 @@ export const PreviewElements = ({
                     setMyEvents(events);
                 }
                 Swal.fire(
-                    '¡Eliminado!',
-                    'Tu elemento ha sido eliminado con exito',
-                    'success'
+                    {
+                        title: '¡Eliminado!',
+                        text: "Tu elemento ha sido eliminado con exito'",
+                        icon: 'success',
+                        iconColor: "#75C0AA",
+                        showCancelButton: false,
+                        confirmButtonColor: '#75C0AA',
+                    }
                 )
             }
         })
@@ -123,24 +129,25 @@ export const PreviewElements = ({
         console.log(data);
     }
     const exitCommunityRequest = async (id) => {
-        // const response = await fetch(`http://localhost:3001/remove_participant/${id}`, {
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer ' + Cookie.get('JWT'),
-        //     },
-        //     method: 'DELETE'
-        // });
-        // const data = await response.json();
-        // console.log(data);
+        const response = await fetch(`http://localhost:3001/remove_member/${id}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + Cookie.get('JWT'),
+            },
+            method: 'DELETE'
+        });
+        const data = await response.json();
+        console.log(data);
     }
     const exitBtnAction = (id, element) => {
         Swal.fire({
             title: '!Cuidado!',
             text: `Estas a punto de salirte de ${element==="event"? "este evento":"esta comunidad"} ¿De verdad quieres hacerlo?`,
             icon: 'warning',
+            iconColor: "#75C0AA",
             showCancelButton: true,
-            confirmButtonColor: '#756dd1',
+            confirmButtonColor: '#75C0AA',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Salir',
             cancelButtonText: "Cancelar"
@@ -148,10 +155,10 @@ export const PreviewElements = ({
             if (result.isConfirmed) {
                 if(element === "community") {
                     console.log("jiji aun no")
-                    // exitCommunityRequest(id);
-                    // let communities = [];
-                    // communities.map((elem)=>{elem._id !== id ? communities.push(elem):null});
-                    // setCommunities(communities);
+                    exitCommunityRequest(id);
+                    let communitiesArray = [];
+                    communities.map((elem)=>{elem._id !== id ? communitiesArray.push(elem):null});
+                    setCommunities(communitiesArray);
                 }else {
                     exitEventRequest(id);
                     let eventsArray = [];

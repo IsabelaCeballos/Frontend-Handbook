@@ -11,7 +11,7 @@ export const Header = () => {
         <>
             <CONTAINER__header>
                 <NAME_APP__h1>HandBook</NAME_APP__h1>
-                <Link href="/login">
+                <Link href="/chats">
                     <a ><MessagesIcon visibility={"visible"} width="2rem" height="2rem" /></a>
                 </Link>
             </CONTAINER__header>

@@ -20,3 +20,15 @@ export const CONTAINER__div = Styled.div`
         font-weight: 500;
     }
 `
+
+export const LOG_OUT__link = Styled.a`
+    color: ${GlobalStyles.COLORS.Negro};
+    text-decoration: none;
+    text-align: center;
+    font-size: ${GlobalStyles.FONT_SIZES.Mediana};
+    cursor: pointer;
+
+    &:hover {
+        color: #c76868;
+    }
+`
