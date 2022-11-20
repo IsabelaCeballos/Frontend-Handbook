@@ -7,15 +7,13 @@ import { BAR__container, SEARCH__input, CONTAINER_ICON__button } from "./styles"
 import { SearchIcon } from "../../assets/SearchIcon"
 import { EquisIcon } from "../../assets/EquisIcon"
 
-export const SearchBar = (props) => {
-    const {placeHolder} = props;
+export const SearchBar = ({placeHolder, contentInput, setContentInput}) => {
     const [deleteSearch, setDeleteSearch] = useState("hidden");
-    const [contentInput, setContentInput] = useState("");
+    // const [contentInput, setContentInput] = useState("");
 
     const handlerInput = (evt) => {
         evt.target.value !== "" ? setDeleteSearch("visible") : setDeleteSearch("hidden");
         setContentInput(evt.target.value);
-        // console.log(contentInput);
     }
 
     return (

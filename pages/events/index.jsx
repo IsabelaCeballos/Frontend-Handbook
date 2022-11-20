@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { useState } from "react"
 
 /*Components */
 import { Menu } from '../../src/components/Menu';
@@ -13,17 +13,21 @@ import Head from 'next/head';
 import { CONTENTBUTTON__div } from './estilos.js';
 
 export default function Events() {
+    const [contentInput, setContentInput] = useState("");
+
     return (
         <>
+            {console.log(contentInput)}
+
             <Head> <title>Eventos</title> </Head>
             <Header />
-            <SearchBar placeHolder="Buscar evento..." />
+            <SearchBar contentInput={contentInput} setContentInput={setContentInput} placeHolder="Buscar evento..." />
             <CONTENTBUTTON__div>
                 <a href='/newEvent'>
                     <RECT__button fillColorBtn="Verde" width="12rem">Crear evento</RECT__button>
                 </a>
             </CONTENTBUTTON__div>
-            <Social type="event" />
+            <Social dataFilter = {contentInput} type="event" />
             <Menu />
             <Footer />
         </>

@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 /*Components */
 import { Menu } from '../../src/components/Menu';
 import { SearchBar } from '../../src/components/SearchBar';
@@ -11,17 +13,19 @@ import Head from 'next/head';
 import { CONTENTBUTTON__div } from './estilos.js';
 
 export default function Communities() {
+    const [contentInput, setContentInput] = useState("");
+
     return (
         <>
             <Head> <title>Comunidades</title> </Head>
             <Header />
-            <SearchBar placeHolder="Buscar comunidad..." />
+            <SearchBar contentInput={contentInput} setContentInput={setContentInput} placeHolder="Buscar comunidad..." />
             <CONTENTBUTTON__div>
                 <a href='/newCommunity'>
                     <RECT__button fillColorBtn="Rojo" width="12rem">Crear comunidad</RECT__button>
                 </a>
             </CONTENTBUTTON__div>
-            <Social type="community" />
+            <Social dataFilter = {contentInput}  type="community" />
             <Menu />
             <Footer />
 
