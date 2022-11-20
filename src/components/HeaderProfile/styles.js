@@ -21,9 +21,10 @@ export const CONTAINER__div = Styled.div`
     }
 `
 
-export const LOG_OUT__link = Styled.a`
+export const LOG_OUT__btn = Styled.button`
     color: ${GlobalStyles.COLORS.Negro};
-    text-decoration: none;
+    background: none;
+    border: none;
     text-align: center;
     font-size: ${GlobalStyles.FONT_SIZES.Mediana};
     cursor: pointer;
