@@ -10,6 +10,9 @@ import {
     TEXTCONTENT__p,
     TEXTTITLELOCATION__p,
     CONTENTBUTTON__div,
+    CONTENTMEMBER__div,
+    TEXTMEMBER__p,
+    TEXTDATE__p
 } from './styles';
 
 /** ALERTS */
@@ -75,7 +78,10 @@ export const Card = ({tipo, value }) => {
                 <CONTENTCARD__div>
                     <CONTENTIMAGE__div>
                         <TEXTTITLEICON__p>{value.icon}</TEXTTITLEICON__p>
-                        <TEXTTITLE__p>{value.name}</TEXTTITLE__p>
+                        <CONTENTMEMBER__div>
+                            <TEXTTITLE__p>{value.name}</TEXTTITLE__p>
+                            <TEXTMEMBER__p>Miembros: {value.members + 1}</TEXTMEMBER__p>
+                        </CONTENTMEMBER__div>
                     </CONTENTIMAGE__div>
                     <TEXTCONTENT__p>{value.description}</TEXTCONTENT__p>
                 </CONTENTCARD__div>
@@ -90,7 +96,8 @@ export const Card = ({tipo, value }) => {
                         <div><TEXTTITLEICON__p>{value.icon}</TEXTTITLEICON__p></div>
                         <div>
                             <TEXTTITLE__p>{value.name}</TEXTTITLE__p>
-                            <TEXTTITLELOCATION__p>Ubicación: {value.location}</TEXTTITLELOCATION__p>
+                            <TEXTTITLELOCATION__p>{value.location}</TEXTTITLELOCATION__p>
+                            <TEXTDATE__p>{value.date}</TEXTDATE__p>
                         </div>
                     </CONTENTIMAGE__div>
                     <TEXTCONTENT__p>{value.description}</TEXTCONTENT__p>

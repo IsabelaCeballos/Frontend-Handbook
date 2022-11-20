@@ -36,7 +36,7 @@ export const CONTENTIMAGE__div = Styled.div`
 
 export const TEXTTITLEICON__p = Styled.p`
     /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
-    font-size: 25px;
+    font-size: 30px;
 `
 export const TEXTTITLE__p = Styled.p`
     /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
@@ -51,11 +51,30 @@ export const TEXTCONTENT__p = Styled.p`
 `
 export const TEXTTITLELOCATION__p = Styled.p`
     /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
+    font-size: 14px;
+    font-weight: 450;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+`
+export const CONTENTMEMBER__div = Styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`
+export const TEXTMEMBER__p = Styled.p`
     font-size: 13px;
     font-weight: 600;
     margin-left: 0.5rem;
     margin-top: 0.3rem;
 `
+export const TEXTDATE__p = Styled.p`
+    font-size: 13px;
+    color: ${GlobalStyle.COLORS.Pancho};
+    font-weight: 450;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+`
+
 export const CONTENTBUTTON__div = Styled.div`
     width: 60%;
     display: flex;
