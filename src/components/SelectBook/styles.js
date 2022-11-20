@@ -2,15 +2,18 @@ import Styled from 'styled-components';
 import GlobalStyles from '../../StylesGlobals/globalStyles';
 
 export const CONTAINER__section = Styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     width: 82%;
-    height: 26rem;
-    margin: 2rem auto;
+    height: 100%;
+    /* margin: 2rem auto; */
     border-radius: 10px;
-    background: rgba(239, 239, 239, 0.2);
+    background: rgba(239,239,239,0.2);
     padding: 1rem 2.8rem;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     text-align: center;
 `
 export const DETAILS_USER__div = Styled.div`
@@ -24,8 +27,8 @@ export const DETAILS_USER__div = Styled.div`
     font-size: 12px;
 `
 export const CONTAINER_USER_IMAGE__div = Styled.div`
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 100%;
     & img {
         width: 100%;

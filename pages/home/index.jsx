@@ -8,6 +8,17 @@ import Head from 'next/head';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import useLayoutEffect from './use-isomorphic-layout-effect';
+import { Footer } from '../../src/components/Footer';
+
+import Styled from 'styled-components';
+
+const CONTAINER__div = Styled.div`
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 6fr 1fr;
+    justify-items: center;
+`
 
 export default function Home() {
 
@@ -27,10 +38,12 @@ export default function Home() {
 
     return (
         <>
-            <Head> <title>Inicio</title> </Head>
-            <Header />
-            <SearchBar placeHolder="Quiero leer..." />
-            <SelectBook DATA={DEFAULT_DATA} />
+            <CONTAINER__div>
+                <Head> <title>Inicio</title> </Head>
+                <Header />
+                <SelectBook DATA={DEFAULT_DATA} />
+                <Footer />
+            </CONTAINER__div>
             <Menu />
         </>
     )

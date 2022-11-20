@@ -1,6 +1,6 @@
 import Cookie from 'js-cookie';
 import Swal from 'sweetalert2';
-import Router from 'next/router'
+import {useRouter} from 'next/router'
 import { useEffect } from "react";
 
 /*Components */
@@ -29,6 +29,9 @@ export const PreviewElements = ({
     events, setEvents,
     getMyDataBooks
 }) => {
+
+    const Router = useRouter();
+
 
     useEffect(() => { 
         getMyDataBooks();
@@ -175,7 +178,7 @@ export const PreviewElements = ({
     }
 
     const editBtnAction = (id, element) => {
-        console.log("editar")
+        Router.push(`/edit/${id}_${element}`);
     }
 
 
@@ -193,7 +196,7 @@ export const PreviewElements = ({
                                 <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(book._id, "book")}>
                                     <DeleteIcon/>
                                 </CIRC__button>
-                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction()}>
+                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction(book._id, "book")}>
                                     <EditIcon/>
                                 </CIRC__button>
                             </div>
@@ -223,7 +226,7 @@ export const PreviewElements = ({
                                 <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(community._id, "community")}>
                                     <DeleteIcon/>
                                 </CIRC__button>
-                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction()}>
+                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction(community._id, "community")}>
                                     <EditIcon/>
                                 </CIRC__button>
                             </CONTAINER_BTN__div>
@@ -260,7 +263,7 @@ export const PreviewElements = ({
                                 <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(event._id, "event")}>
                                     <DeleteIcon/>
                                 </CIRC__button>
-                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction()}>
+                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction(event._id, "event")}>
                                     <EditIcon/>
                                 </CIRC__button>
                             </CONTAINER_BTN__div>

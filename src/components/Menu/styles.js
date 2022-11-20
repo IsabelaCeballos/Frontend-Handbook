@@ -5,7 +5,7 @@ export const CONTAINER__nav = Styled.nav`
     position: fixed;
     right: 0;
     left: 0;
-    bottom: 2rem;
+    bottom: 1.5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;

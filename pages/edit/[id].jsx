@@ -33,7 +33,7 @@ export default function Review() {
             }
             getBookData();
         }
-        
+  
     },[paramsRouter]);
 
     return (

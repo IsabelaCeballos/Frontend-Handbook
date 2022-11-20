@@ -80,7 +80,7 @@ export const Forms = (props) => {
             })
         } else {
             try {
-                const response = await fetch(`http://localhost:3001/${action ==="edit"?"event/" + dataElement._id:"new_event"}`,{
+                const response = await fetch(`http://localhost:3001/${action ==="edit"?"edit/" + dataElement._id:"new_event"}`,{
                     headers:{
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
