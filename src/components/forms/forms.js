@@ -48,8 +48,8 @@ export const Forms = (props) => {
             Swal.fire({
                 icon: "success",
                 title: `Tú libro se ha ${action === "edit" ? "actualizado" : "publicado"} correctamente`,
-                iconColor: '#FF8594',
-                confirmButtonColor: '#FF8594',
+                iconColor: '#75C0AA',
+                confirmButtonColor: '#75C0AA',
                 confirmButtonText: 'OK',
                 width: 400,
             })
@@ -73,14 +73,14 @@ export const Forms = (props) => {
             Swal.fire({
                 icon: "success",
                 title: `La comunidad se ha ${action==="edit"?"actualizado":"publicado"} exitosamente`,
-                iconColor: '#FF8594',
-                confirmButtonColor: '#FF8594',
+                iconColor: '#75C0AA',
+                confirmButtonColor: '#75C0AA',
                 confirmButtonText: 'OK',
                 width: 400,
             })
         } else {
             try {
-                const response = await fetch(`http://localhost:3001/${action ==="edit"?"edit/" + dataElement._id:"new_event"}`,{
+                const response = await fetch(`http://localhost:3001/${action ==="edit"?"event/"+dataElement._id:"new_event"}`,{
                     headers:{
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
@@ -98,8 +98,8 @@ export const Forms = (props) => {
             Swal.fire({
                 icon: "success",
                 title: `El evento se ha ${action==="edit"?"actualizado":"publicado"} exitosamente`,
-                iconColor: '#FF8594',
-                confirmButtonColor: '#FF8594',
+                iconColor: '#75C0AA',
+                confirmButtonColor: '#75C0AA',
                 confirmButtonText: 'OK',
                 width: 400,
             })
