@@ -7,34 +7,36 @@ import logoInicio from '../../assets/logo_form.svg';
 
 import Cookie from 'js-cookie';
 
-import { PRINCIPAL__section,
-    TEXT__label, 
-    DATA__input, 
-    DATA__textArea , 
+import {
+    PRINCIPAL__section,
+    TEXT__label,
+    DATA__input,
+    DATA__textArea,
     CONTENTIMAGE__div,
     DATA__file,
     ERROR__p,
-    CONTENTBUTTON__div} from './forms-style.js';
+    CONTENTBUTTON__div
+} from './forms-style.js';
 
 /** ALERTS */
 import Swal from 'sweetalert2';
 
 export const Forms = (props) => {
-    const {type, action, dataElement} = props;
+    const { type, action, dataElement } = props;
     console.log(type)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
-        if(type === "book"){
+        if (type === "book") {
             try {
-                const response = await fetch(`http://localhost:3001/${action === "edit" ? "bibliographic_material/"+dataElement._id:"new_bibliographic_material"}`,{
-                    headers:{
+                const response = await fetch(`http://localhost:3001/${action === "edit" ? "bibliographic_material/" + dataElement._id : "new_bibliographic_material"}`, {
+                    headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + Cookie.get('JWT'),
                     },
-                    method: action === "edit"?"PUT":"POST",
+                    method: action === "edit" ? "PUT" : "POST",
                     body: JSON.stringify(data)
                 })
                 const responseJson = await response.json();
@@ -45,13 +47,13 @@ export const Forms = (props) => {
             }
             Swal.fire({
                 icon: "success",
-                title: `Tú libro se ha ${action==="edit"?"actualizado":"publicado"} correctamente`,
+                title: `Tú libro se ha ${action === "edit" ? "actualizado" : "publicado"} correctamente`,
                 iconColor: '#FF8594',
                 confirmButtonColor: '#FF8594',
                 confirmButtonText: 'OK',
                 width: 400,
             })
-        }else if( type == "community"){
+        } else if (type == "community") {
             try {
                 const response = await fetch(`http://localhost:3001/${action === "edit" ? "community/"+dataElement._id:"new_community"}`,{
                     headers:{
@@ -76,7 +78,7 @@ export const Forms = (props) => {
                 confirmButtonText: 'OK',
                 width: 400,
             })
-        }else{
+        } else {
             try {
                 const response = await fetch(`http://localhost:3001/${action ==="edit"?"event/" + dataElement._id:"new_event"}`,{
                     headers:{
@@ -106,8 +108,8 @@ export const Forms = (props) => {
 
     return (
         <>
-            <CONTENTIMAGE__div><Image src={logoInicio} alt='logo_app' height={100} width={100}/></CONTENTIMAGE__div>
-            <form onSubmit={handleSubmit(onSubmit)}> 
+            <CONTENTIMAGE__div><Image src={logoInicio} alt='logo_app' height={100} width={100} /></CONTENTIMAGE__div>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 {
                 type === "book" ?
                     <PRINCIPAL__section>
@@ -175,7 +177,7 @@ export const Forms = (props) => {
                 :null
                 }
                 <CONTENTBUTTON__div>
-                    <RECT__button type="submit" fillColorBtn="Rojo">{action==="edit"?"Actualizar": "Publicar"}</RECT__button>
+                    <RECT__button type="submit" fillColorBtn="Rojo">{action === "edit" ? "Actualizar" : "Publicar"}</RECT__button>
                 </CONTENTBUTTON__div>
             </form>
         </>
