@@ -20,20 +20,21 @@ import { PRINCIPAL__section,
 import Swal from 'sweetalert2';
 
 export const Forms = (props) => {
-    const {type, action} = props;
+    const {type, action, dataElement} = props;
+    console.log(type)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
         if(type === "book"){
             try {
-                const response = await fetch('http://localhost:3001/new_bibliographic_material',{
+                const response = await fetch(`http://localhost:3001/${action === "edit" ? "bibliographic_material/"+dataElement._id:"new_bibliographic_material"}`,{
                     headers:{
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + Cookie.get('JWT'),
                     },
-                    method: 'POST',
+                    method: action === "edit"?"PUT":"POST",
                     body: JSON.stringify(data)
                 })
                 const responseJson = await response.json();
@@ -44,7 +45,7 @@ export const Forms = (props) => {
             }
             Swal.fire({
                 icon: "success",
-                title: 'Tú libro se ha publicado correctamente',
+                title: `Tú libro se ha ${action==="edit"?"actualizado":"publicado"} correctamente`,
                 iconColor: '#FF8594',
                 confirmButtonColor: '#FF8594',
                 confirmButtonText: 'OK',
@@ -111,26 +112,26 @@ export const Forms = (props) => {
                 type === "book" ?
                     <PRINCIPAL__section>
                         <TEXT__label>Título del libro</TEXT__label>
-                        <DATA__input type="text" placeholder="Titulo del libro"{...register("bookName", { required: true })} />
-                        {errors.bookName?<ERROR__p>El nombre del libro es obligatorio</ERROR__p>:null}
+                        <DATA__input defaultValue={dataElement?dataElement.name:null} type="text" placeholder="Titulo del libro"{...register("name", { required: true })} />
+                        {errors.name?<ERROR__p>El nombre del libro es obligatorio</ERROR__p>:null}
                         
                         <TEXT__label>Nombre del autor</TEXT__label>
-                        <DATA__input type="text" placeholder="Nombre del autor"{...register("autorName", { required: true })} />
-                        {errors.autorName?<ERROR__p>El nombre del autor es obligatorio</ERROR__p>:null}
+                        <DATA__input defaultValue={dataElement?dataElement.author:null}  type="text" placeholder="Nombre del autor"{...register("author", { required: true })} />
+                        {errors.author?<ERROR__p>El nombre del autor es obligatorio</ERROR__p>:null}
 
                         <TEXT__label>Número de páginas</TEXT__label>
-                        <DATA__input type="number" placeholder="Número de páginas"{...register("numberPages", { required: true, pattern: /^[1-9]\d*$/i })} />
-                        {errors.numberPages?.type == 'required' && <ERROR__p>El número de páginas es obligatorio</ERROR__p>}
-                        {errors.numberPages?.type == 'pattern' && <ERROR__p>No se permiten números negativos</ERROR__p>}
+                        <DATA__input defaultValue={dataElement?dataElement.pages:null}  type="number" placeholder="Número de páginas"{...register("pages", { required: true, pattern: /^[1-9]\d*$/i })} />
+                        {errors.pages?.type == 'required' && <ERROR__p>El número de páginas es obligatorio</ERROR__p>}
+                        {errors.pages?.type == 'pattern' && <ERROR__p>No se permiten números negativos</ERROR__p>}
 
                         <TEXT__label>Descripción - sinopsis</TEXT__label>
-                        <DATA__textArea {...register("description", { required: true, maxLength: 200 })} />                       
+                        <DATA__textArea defaultValue={dataElement?dataElement.description:null}  {...register("description", { required: true, maxLength: 200 })} />                       
                         {errors.description?.type == 'required' && <ERROR__p>La descripción del libro es obligatoria</ERROR__p>}
                         {errors.description?.type == 'maxLength' && <ERROR__p>La descripción no debe contener más de 200 caracteres</ERROR__p>}
 
-                        <TEXT__label>Fotografía del libro</TEXT__label>
-                        <DATA__file type="file" {...register("file", { required: true })} />     
-                        {errors.file?<ERROR__p>La fotografía del libro es obligatoria</ERROR__p>:null}
+                        <TEXT__label>Url de la fotografía del libro</TEXT__label>
+                        <DATA__input defaultValue={dataElement?dataElement.photo:null}  type="text" {...register("photo", { required: true })} />     
+                        {errors.photo?<ERROR__p>La fotografía del libro es obligatoria</ERROR__p>:null}
                     </PRINCIPAL__section>                   
                 :type === "community" ?
                     <PRINCIPAL__section>
@@ -174,7 +175,7 @@ export const Forms = (props) => {
                 :null
                 }
                 <CONTENTBUTTON__div>
-                    <RECT__button type="submit" fillColorBtn="Rojo">Publicar</RECT__button>
+                    <RECT__button type="submit" fillColorBtn="Rojo">{action==="edit"?"Actualizar": "Publicar"}</RECT__button>
                 </CONTENTBUTTON__div>
             </form>
         </>
