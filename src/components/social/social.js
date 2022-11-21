@@ -87,7 +87,7 @@ export const Social = (props) => {
                             :null
                         :<Card tipo="event" value={value} key={index}/>
                     ))
-                :<TITLE__h2 className='TitleEmpty'>!Lo sentimos, en este momento no hay programación¡</TITLE__h2>
+                :<TITLE__h2 className='TitleEmpty'>Lo sentimos, en este momento no hay programación...</TITLE__h2>
                 : type === "community" ?
                 dataCommunity.info.length > 0 ?
                     dataCommunity.info.map((value,index)=>(
@@ -99,7 +99,7 @@ export const Social = (props) => {
                             : null
                         :<Card tipo="community" value={value} key={index}/>
                     ))
-                :<TITLE__h2 className='TitleEmpty'>!Lo sentimos, en este momento no hay programación¡</TITLE__h2>
+                :<TITLE__h2 className='TitleEmpty'>Lo sentimos, en este momento no hay programación...</TITLE__h2>
                 :null
             }
         </PRINCIPAL__div>
