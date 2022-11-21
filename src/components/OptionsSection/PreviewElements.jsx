@@ -222,7 +222,7 @@ export const PreviewElements = ({
                             <HEADER_DATA__div>
                                 <span>{community.icon}</span>
                                 <p>{community.name}</p>
-                                <DETAILS__p>{community.members}</DETAILS__p>
+                                <DETAILS__p>Miembros: {community.members+1}</DETAILS__p>
                             </HEADER_DATA__div>
                             <CONTAINER_BTN__div>
                                 <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(community._id, "community")}>
@@ -242,7 +242,7 @@ export const PreviewElements = ({
                             <HEADER_DATA__div>
                                 <span>{community.icon}</span>
                                 <p>{community.name}</p>
-                                <DETAILS__p>{community.members}</DETAILS__p>
+                                <DETAILS__p>Miembros: {community.members+1}</DETAILS__p>
                             </HEADER_DATA__div>
                             <CONTAINER_BTN__div>
                                 <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction(community._id, "community")}>
