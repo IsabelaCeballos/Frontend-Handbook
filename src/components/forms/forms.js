@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useRouter } from 'next/router'
 
 import Image from 'next/image';
 import { RECT__button } from '../Buttons/index.jsx';
@@ -24,6 +25,7 @@ import Swal from 'sweetalert2';
 export const Forms = (props) => {
     const { type, action, dataElement } = props;
     console.log(type)
+    const router = useRouter();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -54,6 +56,7 @@ export const Forms = (props) => {
                 confirmButtonText: 'OK',
                 width: 400,
             })
+            router.push('/home');
         } else if (type == "community") {
             try {
                 const response = await fetch(`http://localhost:3001/${action === "edit" ? "community/"+dataElement._id:"new_community"}`,{
@@ -79,6 +82,7 @@ export const Forms = (props) => {
                 confirmButtonText: 'OK',
                 width: 400,
             })
+            router.push('/home');
         } else {
             try {
                 const response = await fetch(`http://localhost:3001/${action ==="edit"?"event/"+dataElement._id:"new_event"}`,{
@@ -104,6 +108,7 @@ export const Forms = (props) => {
                 confirmButtonText: 'OK',
                 width: 400,
             })
+            router.push('/home');
         }
     };
 
