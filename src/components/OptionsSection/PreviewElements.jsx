@@ -15,6 +15,7 @@ import {
     CONTAINER_BOOK__section,
     TEMPLATE_IMG_BOOK__div,
     TEMPLATE_COMMUNITY_EVENT__div,
+    DETAILS__p,
     HEADER_DATA__div,
     CONTAINER_BTN__div
 } from './styles';
@@ -31,7 +32,7 @@ export const PreviewElements = ({
 }) => {
 
     const Router = useRouter();
-
+    console.log(communities)
 
     useEffect(() => { 
         getMyDataBooks();
@@ -221,6 +222,7 @@ export const PreviewElements = ({
                             <HEADER_DATA__div>
                                 <span>{community.icon}</span>
                                 <p>{community.name}</p>
+                                <DETAILS__p>{community.members}</DETAILS__p>
                             </HEADER_DATA__div>
                             <CONTAINER_BTN__div>
                                 <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(community._id, "community")}>
@@ -240,6 +242,7 @@ export const PreviewElements = ({
                             <HEADER_DATA__div>
                                 <span>{community.icon}</span>
                                 <p>{community.name}</p>
+                                <DETAILS__p>{community.members}</DETAILS__p>
                             </HEADER_DATA__div>
                             <CONTAINER_BTN__div>
                                 <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction(community._id, "community")}>
@@ -258,6 +261,7 @@ export const PreviewElements = ({
                             <HEADER_DATA__div>
                                 <span>{event.icon}</span>
                                 <p>{event.name}</p>
+                                <DETAILS__p>{event.date}</DETAILS__p>
                             </HEADER_DATA__div>
                             <CONTAINER_BTN__div>
                                 <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(event._id, "event")}>
@@ -277,6 +281,7 @@ export const PreviewElements = ({
                             <HEADER_DATA__div>
                                 <span>{event.icon}</span>
                                 <p>{event.name}</p>
+                                <DETAILS__p>{event.date}</DETAILS__p>
                             </HEADER_DATA__div>
                             <CONTAINER_BTN__div>
                                 <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction(event._id, "event")}>

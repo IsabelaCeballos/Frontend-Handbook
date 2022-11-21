@@ -25,21 +25,22 @@ export const DETAILS_USER__div = Styled.div`
     text-align: start;
     align-items: center;
     font-size: 12px;
+    font-weight: 500;
 `
 export const CONTAINER_USER_IMAGE__div = Styled.div`
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 100%;
-    & img {
+    & span img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 100%;
+        background-color: #000000;
     }
 `
 export const DETAILS_BOOK__div = Styled.div`
     width: 100%;
-    background: red;
     border-radius: 10px;
     height: 75%;
     margin: 1rem 0;

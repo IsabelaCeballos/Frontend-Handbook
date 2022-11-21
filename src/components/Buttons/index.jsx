@@ -43,21 +43,21 @@ export const CIRC__button = (props) => {
         <CIRCLE__button {...otherProps} fillColorBtn={fillColorBtn}>{children}</CIRCLE__button>
     );
 }
-export const LEFT_SIDE__section = (props) => {
+export const LEFT_SIDE__section = ({handler}) => {
     return (
         <CONTINER_SIDE_LEFT>
             <SideFillDislike />
-            <SIDE__button onClick={() => props.handler()}>
+            <SIDE__button onClick={() => handler()}>
                 <EquisIcon width="22px" height="23px"/>
             </SIDE__button>
         </CONTINER_SIDE_LEFT>
     )
 }
-export const RIGHT_SIDE__section = (props) => {
+export const RIGHT_SIDE__section = ({handler}) => {
     return (
         <CONTINER_SIDE_RIGHT>
             <SideFillLike />
-            <SIDE__button onClick={() => props.handler()}>
+            <SIDE__button onClick={() => handler()}>
                 <HeartIcon />
             </SIDE__button>
         </CONTINER_SIDE_RIGHT>
