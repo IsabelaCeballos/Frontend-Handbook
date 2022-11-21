@@ -29,6 +29,7 @@ export const Forms = (props) => {
 
     const onSubmit = async (data) => {
         if (type === "book") {
+            let dataBook = {...data, state: "Disponible"}
             try {
                 const response = await fetch(`http://localhost:3001/${action === "edit" ? "bibliographic_material/" + dataElement._id : "new_bibliographic_material"}`, {
                     headers: {
@@ -37,7 +38,7 @@ export const Forms = (props) => {
                         'Authorization': 'Bearer ' + Cookie.get('JWT'),
                     },
                     method: action === "edit" ? "PUT" : "POST",
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(dataBook)
                 })
                 const responseJson = await response.json();
                 console.log(data);

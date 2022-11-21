@@ -83,9 +83,9 @@ export const Social = (props) => {
                             value.description.toLowerCase().includes(dataFilter.toLowerCase()) || 
                             value.location.toLowerCase().includes(dataFilter.toLowerCase()))
                             ? 
-                                <Card tipo="event" value={value} key={index}/>
+                                <Card data = {dataEvents} setData = {setDataEvents} tipo="event" value={value} key={index}/>
                             :null
-                        :<Card tipo="event" value={value} key={index}/>
+                        :<Card data = {dataEvents} setData = {setDataEvents} tipo="event" value={value} key={index}/>
                     ))
                 :<TITLE__h2 className='TitleEmpty'>Lo sentimos, en este momento no hay programación...</TITLE__h2>
                 : type === "community" ?
@@ -95,9 +95,9 @@ export const Social = (props) => {
                             (value.name.toLowerCase().includes(dataFilter.toLowerCase()) || 
                             value.description.toLowerCase().includes(dataFilter.toLowerCase()))
                             ? 
-                                <Card tipo="community" value={value} key={index}/>
+                                <Card data = {dataCommunity} setData = {setDataCommunity} tipo="community" value={value} key={index}/>
                             : null
-                        :<Card tipo="community" value={value} key={index}/>
+                        :<Card data = {dataCommunity} setData = {setDataCommunity} tipo="community" value={value} key={index}/>
                     ))
                 :<TITLE__h2 className='TitleEmpty'>Lo sentimos, en este momento no hay programación...</TITLE__h2>
                 :null

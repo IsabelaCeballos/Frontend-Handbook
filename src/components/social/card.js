@@ -18,7 +18,7 @@ import {
 /** ALERTS */
 import Swal from 'sweetalert2';
 
-export const Card = ({tipo, value }) => {
+export const Card = ({tipo, value, data, setData}) => {
 
     const newMemberEvent = async (id) => {
         try {
@@ -43,6 +43,11 @@ export const Card = ({tipo, value }) => {
             confirmButtonText: 'OK',
             width: 400,
         })
+        let events = [];
+        data.cards.map((elem)=>{elem._id !== value._id ? events.push(elem):null});
+        setData({
+            cards: events,
+        });
     };
 
     const newMemberCommunity = async (id) => {
@@ -67,7 +72,13 @@ export const Card = ({tipo, value }) => {
             confirmButtonColor: '#75C0AA',
             confirmButtonText: 'OK',
             width: 400,
-        })
+        });
+        let communities = [];
+        data.info.map((elem)=>{elem._id !== value._id ? communities.push(elem):null});
+        setData({
+            info: communities
+        });
+        
     };  
 
     return (
