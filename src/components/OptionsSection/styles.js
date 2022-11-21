@@ -10,7 +10,7 @@ export const CONTAINER__div = Styled.div`
     align-items: center;
     margin: 0 auto;
 `
-export const CONTAINER_TYPE__div= Styled.div`
+export const CONTAINER_TYPE__div = Styled.div`
     width: 60%;
     display: flex;
     justify-content: space-between;
@@ -27,7 +27,7 @@ export const CHOOSE_SECONDARY__button = Styled.button`
     cursor: pointer;
     padding-bottom: 5px;
     box-sizing: border-box;
-    border-bottom: solid ${GlobalStyles.COLORS.Pancho} ${props => props.border == "apply" ? 3: 0}px;
+    border-bottom: solid ${GlobalStyles.COLORS.Pancho} ${props => props.border == "apply" ? 3 : 0}px;
 `
 export const CONTAINER_BOOK__section = Styled.section`
     width: 82%;
@@ -56,7 +56,7 @@ export const TEMPLATE_IMG_BOOK__div = Styled.div`
         bottom: 3px;
     }
 `
-export const TEMPLATE_COMMUNITY_EVENT__div= Styled.div`
+export const TEMPLATE_COMMUNITY_EVENT__div = Styled.div`
     /* font-family: ${GlobalStyles.TYPOGRAPIC.roboto}; */
     position: relative;
     height: 9rem;
@@ -65,6 +65,7 @@ export const TEMPLATE_COMMUNITY_EVENT__div= Styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 export const DETAILS__p = Styled.p`
+    color: ${GlobalStyles.COLORS.Pancho};
     font-size: ${GlobalStyles.FONT_SIZES.Mediana};
 `
 export const HEADER_DATA__div = Styled.div`

@@ -1,6 +1,6 @@
 import Cookie from 'js-cookie';
 import Swal from 'sweetalert2';
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import { useEffect } from "react";
 
 /*Components */
@@ -34,9 +34,9 @@ export const PreviewElements = ({
     const Router = useRouter();
     console.log(communities)
 
-    useEffect(() => { 
+    useEffect(() => {
         getMyDataBooks();
-    },[]);
+    }, []);
 
     const deleteBookRequest = async (id) => {
         const response = await fetch(`http://localhost:3001/bibliographic_material/${id}`, {
@@ -87,23 +87,23 @@ export const PreviewElements = ({
             cancelButtonColor: '#d33',
             confirmButtonText: 'Eliminar',
             cancelButtonText: "Cancelar"
-        }).then (async (result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                if(element === "book"){
+                if (element === "book") {
                     deleteBookRequest(id);
                     let books = [];
-                    dataBook.map((elem)=>{elem._id !== id ? books.push(elem):null});
+                    dataBook.map((elem) => { elem._id !== id ? books.push(elem) : null });
                     setDataBook(books);
-                    
-                }else if(element === "community") {
+
+                } else if (element === "community") {
                     deleteCommunityRequest(id);
                     let communities = [];
-                    myCommunities.map((elem)=>{elem._id !== id ? communities.push(elem):null});
+                    myCommunities.map((elem) => { elem._id !== id ? communities.push(elem) : null });
                     setMyCommunities(communities);
-                }else {
+                } else {
                     deleteEventRequest(id);
                     let events = [];
-                    myEvents.map((elem)=>{elem._id !== id ? events.push(elem):null});
+                    myEvents.map((elem) => { elem._id !== id ? events.push(elem) : null });
                     setMyEvents(events);
                 }
                 Swal.fire(
@@ -147,7 +147,7 @@ export const PreviewElements = ({
     const exitBtnAction = (id, element) => {
         Swal.fire({
             title: '!Cuidado!',
-            text: `Estas a punto de salirte de ${element==="event"? "este evento":"esta comunidad"} ¿De verdad quieres hacerlo?`,
+            text: `Estas a punto de salirte de ${element === "event" ? "este evento" : "esta comunidad"} ¿De verdad quieres hacerlo?`,
             icon: 'warning',
             iconColor: "#75C0AA",
             showCancelButton: true,
@@ -155,23 +155,23 @@ export const PreviewElements = ({
             cancelButtonColor: '#d33',
             confirmButtonText: 'Salir',
             cancelButtonText: "Cancelar"
-        }).then (async (result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                if(element === "community") {
+                if (element === "community") {
                     console.log("jiji aun no")
                     exitCommunityRequest(id);
                     let communitiesArray = [];
-                    communities.map((elem)=>{elem._id !== id ? communitiesArray.push(elem):null});
+                    communities.map((elem) => { elem._id !== id ? communitiesArray.push(elem) : null });
                     setCommunities(communitiesArray);
-                }else {
+                } else {
                     exitEventRequest(id);
                     let eventsArray = [];
-                    events.map((elem)=>{elem._id !== id ? eventsArray.push(elem):null});
+                    events.map((elem) => { elem._id !== id ? eventsArray.push(elem) : null });
                     setEvents(eventsArray);
                 }
                 Swal.fire(
                     '¡Saliste!',
-                    `Ahora ya no haces parte de ${element==="community"?"esta comunidad": "este evento"}`,
+                    `Ahora ya no haces parte de ${element === "community" ? "esta comunidad" : "este evento"}`,
                     'success'
                 )
             }
@@ -186,113 +186,114 @@ export const PreviewElements = ({
     return (
         <CONTAINER_BOOK__section>
             {
-            choose === "books" ?
-                chooseSecondary === 0 ?
-                    dataBook ?
-                    dataBook.map((book, ind)=> (
-                        book.state === "Disponible" &&
-                        <TEMPLATE_IMG_BOOK__div key={ind}>
-                            <img src={book.photo} alt={`Image book ${book.name}`} />
-                            <div>
-                                <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(book._id, "book")}>
-                                    <DeleteIcon/>
-                                </CIRC__button>
-                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction(book._id, "book")}>
-                                    <EditIcon/>
-                                </CIRC__button>
-                            </div>
-                        </TEMPLATE_IMG_BOOK__div>
-                    ))
-                    : <p>Cargando...</p>
-                :chooseSecondary === 1 ?
-                    dataBook ?
-                    dataBook.map((book, ind)=> (
-                        book.state === "Intercambiado" &&
-                        <TEMPLATE_IMG_BOOK__div key={ind}>
-                            <img src={book.photo} alt={`Image book ${book.name}`} />
-                        </TEMPLATE_IMG_BOOK__div>
-                    ))
-                    : <p>Cargando...</p>
-                : <p>No encontramos lo que quieres ver</p>
-            : choose === "communities" ?
-                chooseSecondary === 0 ?
-                    myCommunities ?
-                    myCommunities.map((community, ind)=> (
-                        <TEMPLATE_COMMUNITY_EVENT__div key={ind}>
-                            <HEADER_DATA__div>
-                                <span>{community.icon}</span>
-                                <p>{community.name}</p>
-                                <DETAILS__p>Miembros: {community.members+1}</DETAILS__p>
-                            </HEADER_DATA__div>
-                            <CONTAINER_BTN__div>
-                                <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(community._id, "community")}>
-                                    <DeleteIcon/>
-                                </CIRC__button>
-                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction(community._id, "community")}>
-                                    <EditIcon/>
-                                </CIRC__button>
-                            </CONTAINER_BTN__div>
-                        </TEMPLATE_COMMUNITY_EVENT__div>
-                    ))
-                    : <p>Cargando...</p>
-                :chooseSecondary === 1 ?
-                    communities ?
-                    communities.map((community, ind)=> (
-                        <TEMPLATE_COMMUNITY_EVENT__div key={ind}>
-                            <HEADER_DATA__div>
-                                <span>{community.icon}</span>
-                                <p>{community.name}</p>
-                                <DETAILS__p>Miembros: {community.members+1}</DETAILS__p>
-                            </HEADER_DATA__div>
-                            <CONTAINER_BTN__div>
-                                <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction(community._id, "community")}>
-                                    Salir
-                                </RECT__button>
-                            </CONTAINER_BTN__div>
-                        </TEMPLATE_COMMUNITY_EVENT__div>
-                    ))
-                    : <p>Cargando...</p>
-                : <p>No encontramos lo que quieres ver</p>
-            : choose === "events" ? 
-                chooseSecondary === 0 ?
-                    myEvents ?
-                    myEvents.map((event, ind)=> (
-                        <TEMPLATE_COMMUNITY_EVENT__div key={ind}>
-                            <HEADER_DATA__div>
-                                <span>{event.icon}</span>
-                                <p>{event.name}</p>
-                                <DETAILS__p>{event.date}</DETAILS__p>
-                            </HEADER_DATA__div>
-                            <CONTAINER_BTN__div>
-                                <CIRC__button fillColorBtn="Pancho" onClick = {()=> deleteBtnAction(event._id, "event")}>
-                                    <DeleteIcon/>
-                                </CIRC__button>
-                                <CIRC__button fillColorBtn="Rojo" onClick = {()=> editBtnAction(event._id, "event")}>
-                                    <EditIcon/>
-                                </CIRC__button>
-                            </CONTAINER_BTN__div>
-                        </TEMPLATE_COMMUNITY_EVENT__div>
-                    ))
-                    : <p>Cargando...</p>
-                :chooseSecondary === 1 ?
-                    events ?
-                    events.map((event, ind)=> (
-                        <TEMPLATE_COMMUNITY_EVENT__div key={ind}>
-                            <HEADER_DATA__div>
-                                <span>{event.icon}</span>
-                                <p>{event.name}</p>
-                                <DETAILS__p>{event.date}</DETAILS__p>
-                            </HEADER_DATA__div>
-                            <CONTAINER_BTN__div>
-                                <RECT__button fillColorBtn="Rojo" onClick = {()=> exitBtnAction(event._id, "event")}>
-                                    Salir
-                                </RECT__button>
-                            </CONTAINER_BTN__div>
-                        </TEMPLATE_COMMUNITY_EVENT__div>
-                    ))
-                    : <p>Cargando...</p>
-                : <p>No encontramos lo que quieres ver</p>
-            : <p>No encontramos lo que quieres ver</p>
+                choose === "books" ?
+                    chooseSecondary === 0 ?
+                        dataBook ?
+                            dataBook.map((book, ind) => (
+                                book.state === "Disponible" &&
+                                <TEMPLATE_IMG_BOOK__div key={ind}>
+                                    <img src={book.photo} alt={`Image book ${book.name}`} />
+                                    <div>
+                                        <CIRC__button fillColorBtn="Pancho" onClick={() => deleteBtnAction(book._id, "book")}>
+                                            <DeleteIcon />
+                                        </CIRC__button>
+                                        <CIRC__button fillColorBtn="Rojo" onClick={() => editBtnAction(book._id, "book")}>
+                                            <EditIcon />
+                                        </CIRC__button>
+                                    </div>
+                                </TEMPLATE_IMG_BOOK__div>
+                            ))
+                            : <p>Cargando...</p>
+                        : chooseSecondary === 1 ?
+                            dataBook ?
+                                dataBook.map((book, ind) => (
+                                    (book.state === "En proceso" || book.state === "Intercambiado") &&
+                                    <TEMPLATE_IMG_BOOK__div key={ind}>
+                                        <img src={book.photo} alt={`Image book ${book.name}`} />
+                                        <p>{book.state}</p>
+                                    </TEMPLATE_IMG_BOOK__div>
+                                ))
+                                : <p>Cargando...</p>
+                            : <p>No encontramos lo que quieres ver</p>
+                    : choose === "communities" ?
+                        chooseSecondary === 0 ?
+                            myCommunities ?
+                                myCommunities.map((community, ind) => (
+                                    <TEMPLATE_COMMUNITY_EVENT__div key={ind}>
+                                        <HEADER_DATA__div>
+                                            <span>{community.icon}</span>
+                                            <p>{community.name}</p>
+                                            <DETAILS__p>Miembros: {community.members + 1}</DETAILS__p>
+                                        </HEADER_DATA__div>
+                                        <CONTAINER_BTN__div>
+                                            <CIRC__button fillColorBtn="Pancho" onClick={() => deleteBtnAction(community._id, "community")}>
+                                                <DeleteIcon />
+                                            </CIRC__button>
+                                            <CIRC__button fillColorBtn="Rojo" onClick={() => editBtnAction(community._id, "community")}>
+                                                <EditIcon />
+                                            </CIRC__button>
+                                        </CONTAINER_BTN__div>
+                                    </TEMPLATE_COMMUNITY_EVENT__div>
+                                ))
+                                : <p>Cargando...</p>
+                            : chooseSecondary === 1 ?
+                                communities ?
+                                    communities.map((community, ind) => (
+                                        <TEMPLATE_COMMUNITY_EVENT__div key={ind}>
+                                            <HEADER_DATA__div>
+                                                <span>{community.icon}</span>
+                                                <p>{community.name}</p>
+                                                <DETAILS__p>Miembros: {community.members + 1}</DETAILS__p>
+                                            </HEADER_DATA__div>
+                                            <CONTAINER_BTN__div>
+                                                <RECT__button fillColorBtn="Rojo" onClick={() => exitBtnAction(community._id, "community")}>
+                                                    Salir
+                                                </RECT__button>
+                                            </CONTAINER_BTN__div>
+                                        </TEMPLATE_COMMUNITY_EVENT__div>
+                                    ))
+                                    : <p>Cargando...</p>
+                                : <p>No encontramos lo que quieres ver</p>
+                        : choose === "events" ?
+                            chooseSecondary === 0 ?
+                                myEvents ?
+                                    myEvents.map((event, ind) => (
+                                        <TEMPLATE_COMMUNITY_EVENT__div key={ind}>
+                                            <HEADER_DATA__div>
+                                                <span>{event.icon}</span>
+                                                <p>{event.name}</p>
+                                                <DETAILS__p>{event.date}</DETAILS__p>
+                                            </HEADER_DATA__div>
+                                            <CONTAINER_BTN__div>
+                                                <CIRC__button fillColorBtn="Pancho" onClick={() => deleteBtnAction(event._id, "event")}>
+                                                    <DeleteIcon />
+                                                </CIRC__button>
+                                                <CIRC__button fillColorBtn="Rojo" onClick={() => editBtnAction(event._id, "event")}>
+                                                    <EditIcon />
+                                                </CIRC__button>
+                                            </CONTAINER_BTN__div>
+                                        </TEMPLATE_COMMUNITY_EVENT__div>
+                                    ))
+                                    : <p>Cargando...</p>
+                                : chooseSecondary === 1 ?
+                                    events ?
+                                        events.map((event, ind) => (
+                                            <TEMPLATE_COMMUNITY_EVENT__div key={ind}>
+                                                <HEADER_DATA__div>
+                                                    <span>{event.icon}</span>
+                                                    <p>{event.name}</p>
+                                                    <DETAILS__p>{event.date}</DETAILS__p>
+                                                </HEADER_DATA__div>
+                                                <CONTAINER_BTN__div>
+                                                    <RECT__button fillColorBtn="Rojo" onClick={() => exitBtnAction(event._id, "event")}>
+                                                        Salir
+                                                    </RECT__button>
+                                                </CONTAINER_BTN__div>
+                                            </TEMPLATE_COMMUNITY_EVENT__div>
+                                        ))
+                                        : <p>Cargando...</p>
+                                    : <p>No encontramos lo que quieres ver</p>
+                            : <p>No encontramos lo que quieres ver</p>
             }
         </CONTAINER_BOOK__section>
     )
