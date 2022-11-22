@@ -60,7 +60,7 @@ export const Social = (props) => {
                 info: responseJson.result,
             });
         } catch (error) {
-            
+            console.error(error);
         }
     }
     let dataView = useRef(null);
