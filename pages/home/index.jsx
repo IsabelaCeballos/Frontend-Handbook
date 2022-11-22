@@ -49,24 +49,26 @@ export default function Home() {
 
     const [dataBook, setDataBook] = useState(null);
 
-    useLayoutEffect(() => {
-        Cookies.get('JWT') === undefined ? router.push('/login') : null;
-    }, []);
-
     useEffect(() => { 
-        const getEntryRandomBook = async () => {
-            const response = await fetch('http://localhost:3001/bibliographic_materials_random', {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + Cookies.get('JWT'),
-                }
-            });
-            const data = await response.json();
-            console.log(data);
-            setDataBook(data.result);
+
+        if (Cookies.get('JWT') === undefined) {
+            router.push('/login')
+        } else {
+            const getEntryRandomBook = async () => {
+                const response = await fetch('http://localhost:3001/bibliographic_materials_random', {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + Cookies.get('JWT'),
+                    }
+                });
+                const data = await response.json();
+                console.log(data);
+                setDataBook(data.result);
+            }
+            getEntryRandomBook();
         }
-        getEntryRandomBook();
+
     },[]);
 
     return (
