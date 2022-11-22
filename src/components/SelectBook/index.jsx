@@ -43,6 +43,7 @@ export const SelectBook = ({DATA, setDataBook}) => {
             const data = await response.json();
             console.log(data);
             setDataBook(data.result);
+            data.match ?
             Swal.fire({
                     title: '¡WOOO! HICISTE UN MATCH',
                     text: "Mira tus chats para que puedas realizar tu intercambio",
@@ -53,6 +54,7 @@ export const SelectBook = ({DATA, setDataBook}) => {
             }).then(
                 Router.push("/chats")
             )
+            :null
         } catch (error) {
             console.error(error);
         }
