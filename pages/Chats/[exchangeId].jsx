@@ -112,7 +112,7 @@ export default function Chatting() {
                         {
                             vecMsj ? 
                             vecMsj.map((msj, index)=>(
-                                <MSJ__div key={index} who={paramsRouter.split("_")[1] === msj.id_user_destiny ? "you" : "me"}>
+                                <MSJ__div key={index} who={userChat.myId === msj.id_user_destiny ? "you" : "me"}>
                                     <p>
                                         {msj.content}
                                     </p>
