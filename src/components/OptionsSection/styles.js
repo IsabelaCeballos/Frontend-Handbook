@@ -42,6 +42,7 @@ export const TEMPLATE_IMG_BOOK__div = Styled.div`
     border-radius: 10px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
     & img {
+        opacity: ${props => props.state === "Disponible" ? 1 : 0.3};
         width: 100%;
         height: 90%;
         object-fit: cover;
@@ -54,6 +55,16 @@ export const TEMPLATE_IMG_BOOK__div = Styled.div`
         justify-content: center;
         gap: 15px;
         bottom: 3px;
+    }
+    & p {
+        font-size: 16px;
+        text-align: center;
+        background: ${ (props) => props.state==="Intercambiado" ? GlobalStyles.COLORS.Rojo: "#424242"};
+        padding: 2px 0;
+        position: relative;
+        bottom: 100px;
+        color: white;
+
     }
 `
 export const TEMPLATE_COMMUNITY_EVENT__div = Styled.div`

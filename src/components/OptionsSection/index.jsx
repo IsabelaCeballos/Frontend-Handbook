@@ -89,7 +89,7 @@ export const OptionsSection = () => {
             <OptionsType
                 opc={
                     choose == "books"
-                        ? ["Disponibles", "Intercambiados"]
+                        ? ["Disponibles", "No disponibles"]
                         : choose == "communities"
                             ? ["Creadas", "Miembro"]
                             : ["Creados", "Unidos"]
