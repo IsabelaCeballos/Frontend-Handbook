@@ -1,12 +1,13 @@
+import Image from 'next/image';
+import Cookies from 'js-cookie';
+import Swal from 'sweetalert2';
+
 /*Components */
 import { LEFT_SIDE__section, RIGHT_SIDE__section} from '../Buttons'
 
 /*Syled Components */
 import { CONTAINER__section, DETAILS_USER__div, DETAILS_BOOK__div, CONTAINER_USER_IMAGE__div } from './styles'
-
-import Image from 'next/image';
-import Cookies from 'js-cookie';
-
+import Router from 'next/router';
 
 export const SelectBook = ({DATA, setDataBook}) => {
     
@@ -42,6 +43,16 @@ export const SelectBook = ({DATA, setDataBook}) => {
             const data = await response.json();
             console.log(data);
             setDataBook(data.result);
+            Swal.fire({
+                    title: '¡WOOO! HICISTE UN MATCH',
+                    text: "Mira tus chats para que puedas realizar tu intercambio",
+                    icon: 'success',
+                    iconColor: "#75C0AA",
+                    showCancelButton: false,
+                    confirmButtonColor: '#75C0AA',
+            }).then(
+                Router.push("/chats")
+            )
         } catch (error) {
             console.error(error);
         }

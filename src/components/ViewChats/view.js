@@ -40,10 +40,10 @@ export const ViewChat = () => {
         <>
             <div>
             {
-                    dataExchange.info.length ?
-                    dataExchange.info.map((value, index) => {
+                    dataExchange.info.Exchanges ?
+                    dataExchange.info.Exchanges.map((value, index) => {
                         return(
-                            <Card value={value} key={index}/>
+                            <Card myId = {dataExchange.info.myId} value={value} key={index}/>
                         );
                     })
                     :<TITLE__h2 className='TitleEmpty'>No tienes chats pendientes...</TITLE__h2>

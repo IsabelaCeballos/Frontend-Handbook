@@ -18,7 +18,7 @@ import {
 } from './styles';
 
 export const Card = (props) => {
-    const {value} = props
+    const {value, myId} = props
     // console.log("card" , value)
     const toChatting = (id, idOwner) => {
         Router.push(`/chats/${id}_${idOwner}`);
@@ -27,17 +27,17 @@ export const Card = (props) => {
         <>
             {   value.state !== "Intercambio Realizado" &&
                 <div>
-                    <CONTENTINFO__div onClick={() => toChatting(value._id, value.Id_User_Two[0]._id)}>
+                    <CONTENTINFO__div onClick={() => toChatting(value._id, myId)}>
                         <CONTENTIMAGE__div>
                         <Image
-                            src= {value.Id_User_One[0].photo}
+                            src= {myId === value.Id_User_One[0]._id ? value.Id_User_Two[0].photo :value.Id_User_One[0].photo}
                             width={30}
                             height={30}
                             layout="responsive"
                         />
                         </CONTENTIMAGE__div>
                         <CONTENTTEXT__div>
-                            <TEXTTITLE__p>{value.Id_User_One[0].name}</TEXTTITLE__p>
+                            <TEXTTITLE__p>{myId === value.Id_User_One[0]._id ? value.Id_User_Two[0].name :value.Id_User_One[0].name}</TEXTTITLE__p>
                             <CONTENTBOOKS__div>
                                 <TEXTCONTENT__p>{value.Id_Book_One[0].name}</TEXTCONTENT__p>
                                 <Image

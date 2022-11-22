@@ -19,6 +19,7 @@ export default function Chatting() {
     const [message, setMessage] = useState();
     const [socket, setSocket] = useState();
     const [vecMsj, setVecMsj] = useState();
+    const [userChat, setUserChat] = useState("");
 
     const paramsRouter = useRouter().query.exchangeId;   
 
@@ -38,9 +39,24 @@ export default function Chatting() {
             Socket.emit('getMessage');
             
             Socket.on('messages', data => { setVecMsj(data); })
+
+            getUserChat(paramsRouterExch);
         }
-        
-    }, [paramsRouter])
+    }, [paramsRouter]);
+
+    const getUserChat = async (paramsRouterExch) => {
+        const response = await fetch(`http://localhost:3001/Exchange/${paramsRouterExch}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + Cookie.get('JWT'),
+            },
+            method: 'GET'
+        });
+        const data = await response.json();
+        setUserChat(data.result);
+        console.log(data);
+    }
 
     const handlerSendMessage = () => { 
         socket.emit('sendMessage', message, paramsRouter.split("_")[0]);
@@ -69,31 +85,32 @@ export default function Chatting() {
             <Head> <title>Chating</title> </Head>
             <>
             {
-                vecMsj ? 
+                userChat ? 
                 <div>
                     <BAR_DES__div>
                         <button onClick={()=>Router.push("/chats")}><BackIcon /></button>
                         <BAR_DES__section>
                             <img src={
-                                vecMsj[0].id_user_destiny[0]._id !== paramsRouter.split("_")[0] ?
-                                    vecMsj[0].id_user_destiny[0].photo
-                                :vecMsj[0].id_user_origin[0].photo
+                                userChat.Exchange[0].Id_User_One[0]._id === paramsRouter.split("_")[1] ?
+                                userChat.Exchange[0].Id_User_Two[0].photo
+                                :userChat.Exchange[0].Id_User_One[0].photo
                                 } 
                                 alt='Imagen usuario destinatario' 
                             />
                             <p>{
-                                vecMsj[0].id_user_destiny[0]._id !== paramsRouter.split("_")[0] ?
-                                vecMsj[0].id_user_destiny[0].name
-                                :vecMsj[0].id_user_origin[0].name
+                                userChat.Exchange[0].Id_User_One[0]._id === paramsRouter.split("_")[1] ?
+                                userChat.Exchange[0].Id_User_Two[0].name
+                                :userChat.Exchange[0].Id_User_One[0].name
                             }</p>
                             <BTNS__div>
-                                <button onClick={()=> Router.push(`../review/${paramsRouter.split("_")[0]}`)} >Libro recibido</button>
+                                <button onClick={()=> Router.push(`../review/${userChat.Exchange[0]._id}`)} >Libro recibido</button>
                                 <button onClick={()=>bookNotExchange()}>No intercambiar</button>
                             </BTNS__div>
                         </BAR_DES__section>
                     </BAR_DES__div>
                     <CONTAINER_MSJ__div>
                         {
+                            vecMsj ? 
                             vecMsj.map((msj, index)=>(
                                 <MSJ__div key={index} who={paramsRouter.split("_")[1] === msj.id_user_destiny ? "you" : "me"}>
                                     <p>
@@ -102,6 +119,7 @@ export default function Chatting() {
                                     <span>{msj.date}</span>
                                 </MSJ__div>
                             ))
+                            :null
                         }
                     </CONTAINER_MSJ__div>
                     <BAR_TYPING__div>

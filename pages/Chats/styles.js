@@ -62,6 +62,7 @@ export const CONTAINER_MSJ__div = Styled.div`
     margin: 6rem 0;
     /* background: red; */
     width: 100%;
+    height: 90vh;
     background-image: url('../Fondo.png');
     background-size: cover;
     background-repeat: no-repeat;

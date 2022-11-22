@@ -12,7 +12,7 @@ import { Footer } from "../../src/components/Footer"
 
 export default function Review() {
     const paramsRouter = useRouter().query.exch;
-    const [dataExch, setDataEch] = useState({});
+    const [dataExch, setDataExch] = useState({});
     useEffect(()=>{
         const getExchange = async () => {
             if (paramsRouter) {
@@ -27,7 +27,8 @@ export default function Review() {
                         method: 'GET'
                     });
                     const responseJson = await response.json();
-                    setDataEch(responseJson.result[0].Id_User_One[0]);
+                    setDataExch({data:responseJson.result.Exchange[0], myId: responseJson.result.myId});
+                    console.log({data:responseJson.result.Exchange[0], myId: responseJson.result.myId})
                 } catch (error) {
                     console.error(error);
                 }
@@ -43,11 +44,16 @@ export default function Review() {
             <Header />
             <Menu />
             {
-                dataExch ?
+                dataExch.data ?
                 <div>
+                    {console.log(dataExch)}
                     <HeaderProfile 
-                        photoUser={dataExch.photo}
-                        nameUser={dataExch.name}
+                        photoUser={dataExch.myId === dataExch.data.Id_User_One[0]._id ? 
+                            dataExch.data.Id_User_Two[0].photo
+                            :dataExch.data.Id_User_One[0].photo}
+                        nameUser={dataExch.myId === dataExch.data.Id_User_One[0]._id ? 
+                            dataExch.data.Id_User_Two[0].name
+                            :dataExch.data.Id_User_One[0].name}
                         />
                     <ReviewForm exchange = {paramsRouter}/>
                 </div>
