@@ -50,7 +50,7 @@ export const OptionsSection = () => {
             }
         });
         const data = await response.json();
-        console.log(data.result);
+        // console.log(data.result);
         setCommunities(data.result);
     }
     const getMyEvents = async () => {

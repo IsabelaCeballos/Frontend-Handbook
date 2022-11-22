@@ -17,6 +17,7 @@ export const CONTENTINFO__div = Styled.div`
     padding:1rem 2rem;
     margin-top: 1rem;
     box-sizing: border-box;
+    cursor: pointer;
 `
 
 export const CONTENTIMAGE__div = Styled.div`

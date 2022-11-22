@@ -6,6 +6,15 @@ export const BAR_DES__div =  Styled.div`
     width: 100%;
     top: 0;
     background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    box-sizing: border-box;
+    & button {
+        cursor: pointer;
+        border: none;
+        background: none;
+    }
 `
 export const BAR_DES__section = Styled.section`
     width: 90%;

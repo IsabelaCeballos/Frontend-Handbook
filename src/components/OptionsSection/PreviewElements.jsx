@@ -32,7 +32,7 @@ export const PreviewElements = ({
 }) => {
 
     const Router = useRouter();
-    console.log(communities)
+    // console.log(communities)
 
     useEffect(() => {
         getMyDataBooks();
@@ -48,7 +48,7 @@ export const PreviewElements = ({
             method: 'DELETE'
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
     }
 
     const deleteCommunityRequest = async (id) => {
@@ -61,7 +61,7 @@ export const PreviewElements = ({
             method: 'DELETE'
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
     }
     const deleteEventRequest = async (id) => {
         const response = await fetch(`http://localhost:3001/event/${id}`, {
@@ -73,7 +73,7 @@ export const PreviewElements = ({
             method: 'DELETE'
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
     }
 
     const deleteBtnAction = (id, element) => {
@@ -130,7 +130,7 @@ export const PreviewElements = ({
             method: 'DELETE'
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
     }
     const exitCommunityRequest = async (id) => {
         const response = await fetch(`http://localhost:3001/remove_member/${id}`, {
@@ -142,7 +142,7 @@ export const PreviewElements = ({
             method: 'DELETE'
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
     }
     const exitBtnAction = (id, element) => {
         Swal.fire({
@@ -158,7 +158,7 @@ export const PreviewElements = ({
         }).then(async (result) => {
             if (result.isConfirmed) {
                 if (element === "community") {
-                    console.log("jiji aun no")
+                    // console.log("jiji aun no")
                     exitCommunityRequest(id);
                     let communitiesArray = [];
                     communities.map((elem) => { elem._id !== id ? communitiesArray.push(elem) : null });
@@ -170,9 +170,14 @@ export const PreviewElements = ({
                     setEvents(eventsArray);
                 }
                 Swal.fire(
-                    '¡Saliste!',
-                    `Ahora ya no haces parte de ${element === "community" ? "esta comunidad" : "este evento"}`,
-                    'success'
+                    {
+                        title: '¡Saliste!',
+                        text: `Ahora ya no haces parte de ${element === "community" ? "esta comunidad" : "este evento"}`,
+                        icon: 'success',
+                        iconColor: "#75C0AA",
+                        showCancelButton: false,
+                        confirmButtonColor: '#75C0AA',
+                    }
                 )
             }
         })

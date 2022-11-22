@@ -4,36 +4,36 @@ import { RECT__button } from "../Buttons";
 import { CONTAINER__section, TEXT__p } from "./styles";
 import { useState } from 'react';
 import Cookie from 'js-cookie';
+import Router from 'next/router';
 
-export const ReviewForm = ({ dataUser }) => {
+export const ReviewForm = ({ exchange }) => {
     const [rate, setRate] = useState(0);
     const [description, setDescription] = useState("");
     const [warning, setWarning] = useState("hide");
-    // const [dataToSend, setDataToSend] = useState({idUser: dataUser, rate:"", description: ""});
 
     const sendData = async () => {
         if (rate !== 0 && description !== "") {
-            console.log(dataUser);
+            console.log(exchange);
             console.log(rate);
             console.log(description);
             setWarning("hide");
-            /*try {
-                const response = await fetch(`http://localhost:3001/Exchange/${}`, {
+            const stars = JSON.stringify({review:rate});
+            try {
+                const response = await fetch(`http://localhost:3001/Exchange/${exchange}`, {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + Cookie.get('JWT'),
                     },
                     method: "PUT",
-                    body: {
-                        "review": rate
-                    }
+                    body:stars
                 });
                 const responseJson = await response.json();
                 console.log(responseJson);
             } catch (error) {
                 console.error(error);
-            }*/
+            }
+            Router.push("/home");
 
         } else {
             setWarning("show");

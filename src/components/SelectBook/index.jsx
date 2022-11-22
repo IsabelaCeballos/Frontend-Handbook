@@ -55,7 +55,7 @@ export const SelectBook = ({DATA, setDataBook}) => {
                     </CONTAINER_USER_IMAGE__div>
                     <div>
                         <p>{DATA.user.name}</p>
-                        <span>estrellas</span>
+                        <span>{DATA.user.stars === 0 ? "Sin puntuación": [...Array(DATA.user.stars)].map(() => "⭐")}</span>
                     </div>
                 </DETAILS_USER__div>
                 <DETAILS_BOOK__div>

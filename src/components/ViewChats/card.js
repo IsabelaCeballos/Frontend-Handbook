@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Router from 'next/router';
 
 import flecha from '../../assets/change.svg';
 
@@ -18,22 +19,25 @@ import {
 
 export const Card = (props) => {
     const {value} = props
-    console.log("card" , value)
+    // console.log("card" , value)
+    const toChatting = (id, idOwner) => {
+        Router.push(`/chats/${id}_${idOwner}`);
+    }
     return(
         <>
-            {
+            {   value.state !== "Intercambio Realizado" &&
                 <div>
-                    <CONTENTINFO__div>
+                    <CONTENTINFO__div onClick={() => toChatting(value._id, value.Id_User_Two[0]._id)}>
                         <CONTENTIMAGE__div>
                         <Image
-                            src= {value.Id_User_Two[0].photo}
+                            src= {value.Id_User_One[0].photo}
                             width={30}
                             height={30}
                             layout="responsive"
                         />
                         </CONTENTIMAGE__div>
                         <CONTENTTEXT__div>
-                            <TEXTTITLE__p>{value.Id_User_Two[0].name}</TEXTTITLE__p>
+                            <TEXTTITLE__p>{value.Id_User_One[0].name}</TEXTTITLE__p>
                             <CONTENTBOOKS__div>
                                 <TEXTCONTENT__p>{value.Id_Book_One[0].name}</TEXTCONTENT__p>
                                 <Image
