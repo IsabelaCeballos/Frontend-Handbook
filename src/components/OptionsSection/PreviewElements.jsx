@@ -191,7 +191,7 @@ export const PreviewElements = ({
                         dataBook ?
                             dataBook.map((book, ind) => (
                                 book.state === "Disponible" &&
-                                <TEMPLATE_IMG_BOOK__div key={ind}>
+                                <TEMPLATE_IMG_BOOK__div key={ind} state = {book.state}>
                                     <img src={book.photo} alt={`Image book ${book.name}`} />
                                     <div>
                                         <CIRC__button fillColorBtn="Pancho" onClick={() => deleteBtnAction(book._id, "book")}>
@@ -208,9 +208,9 @@ export const PreviewElements = ({
                             dataBook ?
                                 dataBook.map((book, ind) => (
                                     (book.state === "En proceso" || book.state === "Intercambiado") &&
-                                    <TEMPLATE_IMG_BOOK__div key={ind}>
+                                    <TEMPLATE_IMG_BOOK__div key={ind} state = {book.state}>
                                         <img src={book.photo} alt={`Image book ${book.name}`} />
-                                        <p>{book.state}</p>
+                                        <p>{book.state === "Intercambiado" ? "Intercambiado":"En proceso"}</p>
                                     </TEMPLATE_IMG_BOOK__div>
                                 ))
                                 : <p>Cargando...</p>
