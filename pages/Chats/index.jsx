@@ -1,4 +1,4 @@
-/*Components */
+/Components/
 import { Menu } from '../../src/components/Menu';
 import { SearchBar } from '../../src/components/SearchBar';
 import { Header } from '../../src/components/Header';

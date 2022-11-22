@@ -6,10 +6,9 @@ export const TITLE__h2 = Styled.h2`
     font-size: ${GlobalStyle.FONT_SIZES.Grande};
     font-weight: 500;
     text-align: center;
+    margin: 2rem;
 `
-export const CONTENTCARD__div = Styled.div`
 
-`
 export const CONTENTINFO__div = Styled.div`
     width: 100%;
     display: flex;
@@ -41,11 +40,14 @@ export const TEXTTITLE__p = Styled.p`
 `
 export const TEXTCONTENT__p = Styled.p`
     /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
+    width: 40%;
     font-size: 14px;
     text-align: justify;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 `
 
 export const CONTENTBOOKS__div = Styled.div`
     display: flex;
-    justify-content: space-around;
 `
