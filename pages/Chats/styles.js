@@ -59,11 +59,13 @@ export const BTNS__div = Styled.div`
     }
 `
 export const CONTAINER_MSJ__div = Styled.div`
-    margin: 6rem 0;
-    /* background: red; */
+    padding-top: 30%;
+    padding-bottom: 25%;
+`
+export const CONTAINER_FILL__div = Styled.div`
     width: 100%;
-    height: 90vh;
-    background-image: url('../Fondo.png');
+    height: 100vh;
+    background-image: url(../Fondo.png);
     background-size: cover;
     background-repeat: no-repeat;
 `
@@ -74,8 +76,8 @@ export const MSJ__div = Styled.div`
     align-items: ${props => props.who === "me" ? "flex-end" : "flex-start"};
  & p {
     width: 70%;
-    background: ${props => props.who === "me"? "#488674": "#F3F3F3"};
-    color: ${props => props.who === "me"? "#F3F3F3": "#488674"};
+    background: ${props => props.who === "me"? "#488674": "#e9e9e9"};
+    color: ${props => props.who === "me"? "#e9e9e9": "#488674"};
     font-size: 15px;
     padding: 1rem;
     border-radius: ${props => props.who === "me"? "20px 20px 0px 20px": "20px 20px 20px 0px"};

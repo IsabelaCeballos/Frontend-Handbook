@@ -12,7 +12,7 @@ import { CIRC__button } from '../../src/components/Buttons';
 
 import {
     BAR_DES__section, BAR_DES__div, BAR_TYPING__section,
-    CONTAINER_MSJ__div, BTNS__div, MSJ__div, BAR_TYPING__div
+    CONTAINER_MSJ__div, BTNS__div, MSJ__div, BAR_TYPING__div, CONTAINER_FILL__div
 } from './styles';
 
 export default function Chatting() {
@@ -55,7 +55,7 @@ export default function Chatting() {
         });
         const data = await response.json();
         setUserChat(data.result);
-        console.log(data);
+        // console.log(data);
     }
 
     const handlerSendMessage = () => {
@@ -86,7 +86,7 @@ export default function Chatting() {
             <>
                 {
                     userChat ?
-                        <div>
+                        <CONTAINER_FILL__div>
                             <BAR_DES__div>
                                 <button onClick={() => Router.push("/chats")}><BackIcon /></button>
                                 <BAR_DES__section>
@@ -130,7 +130,7 @@ export default function Chatting() {
                                     </CIRC__button>
                                 </BAR_TYPING__section>
                             </BAR_TYPING__div>
-                        </div>
+                        </CONTAINER_FILL__div>
                         : <p>Cargando...</p>
                 }
             </>

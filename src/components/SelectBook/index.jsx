@@ -13,7 +13,7 @@ export const SelectBook = ({DATA, setDataBook}) => {
     
     const tapTap = async () => {
         try {
-            console.log("me diste clickkk izq");
+            // console.log("me diste clickkk izq");
             const response = await fetch(`http://localhost:3001/bibliographic_materials_dislike`, {
                 headers: {
                     'Accept': 'application/json',
@@ -22,7 +22,7 @@ export const SelectBook = ({DATA, setDataBook}) => {
                 }
             });
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             setDataBook(data.result);
         } catch (error) {
             console.error(error);
@@ -30,7 +30,7 @@ export const SelectBook = ({DATA, setDataBook}) => {
     }
     
     const tapTop = async () => {
-        console.log("me diste clickkk der");
+        // console.log("me diste clickkk der");
         try {
             const response = await fetch(`http://localhost:3001/bibliographic_materials_like/${DATA.book[0]._id}`, {
                 headers: {
@@ -41,7 +41,7 @@ export const SelectBook = ({DATA, setDataBook}) => {
                 method: 'POST'
             });
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             setDataBook(data.result);
             data.match ?
             Swal.fire({

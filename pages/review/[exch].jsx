@@ -17,7 +17,7 @@ export default function Review() {
         const getExchange = async () => {
             if (paramsRouter) {
                 try {
-                    console.log(paramsRouter);
+                    // console.log(paramsRouter);
                     const response = await fetch(`http://localhost:3001/Exchange/${paramsRouter}`,{
                         headers: {
                             'Accept': 'application/json',
@@ -28,7 +28,7 @@ export default function Review() {
                     });
                     const responseJson = await response.json();
                     setDataExch({data:responseJson.result.Exchange[0], myId: responseJson.result.myId});
-                    console.log({data:responseJson.result.Exchange[0], myId: responseJson.result.myId})
+                    // console.log({data:responseJson.result.Exchange[0], myId: responseJson.result.myId})
                 } catch (error) {
                     console.error(error);
                 }
@@ -39,14 +39,12 @@ export default function Review() {
 
     return (
         <>
-        {console.log(dataExch)}
             <Head><title>Reseña</title></Head>
             <Header />
             <Menu />
             {
                 dataExch.data ?
                 <div>
-                    {console.log(dataExch)}
                     <HeaderProfile 
                         photoUser={dataExch.myId === dataExch.data.Id_User_One[0]._id ? 
                             dataExch.data.Id_User_Two[0].photo

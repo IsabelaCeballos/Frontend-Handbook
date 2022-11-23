@@ -10,7 +10,7 @@ import { Forms } from '../../src/components/forms/forms';
 
 export default function Review() {
     const paramsRouter = useRouter().query.id;
-    console.log("primer console",paramsRouter);
+    // console.log("primer console",paramsRouter);
     let idElement="", typeElement="";
     const [dataElement, setDataElement] = useState(null);
 
@@ -18,7 +18,7 @@ export default function Review() {
         if (paramsRouter) {
             idElement = paramsRouter.split("_")[0];
             typeElement = paramsRouter.split("_")[1];
-            console.log("type->",typeElement)
+            // console.log("type->",typeElement)
 
             const getBookData = async () => {
                 const response = await fetch(`http://localhost:3001/${typeElement==="book"?"bibliographic_material":typeElement==="community"?"community":"event"}/${idElement}`, {

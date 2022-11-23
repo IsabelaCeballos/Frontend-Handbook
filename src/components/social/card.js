@@ -31,7 +31,7 @@ export const Card = ({tipo, value, data, setData}) => {
                 method: 'POST'
             });
             const responseAddEvent = await response.json();
-            console.log(responseAddEvent);
+            // console.log(responseAddEvent);
         } catch (error) {
             console.error(error);
         }
@@ -61,7 +61,7 @@ export const Card = ({tipo, value, data, setData}) => {
                 method: 'POST'
             });   
             const responseAddCommunity = await response.json();
-            console.log(responseAddCommunity);        
+            // console.log(responseAddCommunity);        
         } catch (error) {
             console.error(error);
         }

@@ -19,7 +19,7 @@ import Head from 'next/head';
 function HomePage() {
 
     const autentication = async () => {
-        console.log('holi desde autentication');
+        // console.log('holi desde autentication');
         try {
             const response = await fetch('localhost:3001/auth/google', {
                 headers: {
@@ -28,7 +28,7 @@ function HomePage() {
                 method: 'GET',
             });
             const responseJson = await response.json();
-            console.log(responseJson);
+            // console.log(responseJson);
         } catch (error) {
             console.error(error);
         }

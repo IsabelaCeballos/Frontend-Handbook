@@ -24,7 +24,7 @@ import Swal from 'sweetalert2';
 
 export const Forms = (props) => {
     const { type, action, dataElement } = props;
-    console.log(type)
+    // console.log(type)
     const router = useRouter();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -43,8 +43,8 @@ export const Forms = (props) => {
                     body: JSON.stringify(dataBook)
                 })
                 const responseJson = await response.json();
-                console.log(data);
-                console.log(responseJson);
+                // console.log(data);
+                // console.log(responseJson);
             } catch (error) {
                 console.error(error);
             }
@@ -69,8 +69,8 @@ export const Forms = (props) => {
                     body: JSON.stringify(data)
                 })
                 const responseJson = await response.json();
-                console.log(data);
-                console.log(responseJson);
+                // console.log(data);
+                // console.log(responseJson);
             } catch (error) {
                 console.error(error);
             }
@@ -95,8 +95,8 @@ export const Forms = (props) => {
                     body: JSON.stringify(data)
                 })
                 const responseJson = await response.json();
-                console.log(data);
-                console.log(responseJson);
+                // console.log(data);
+                // console.log(responseJson);
             } catch (error) {
                 console.error(error);
             }

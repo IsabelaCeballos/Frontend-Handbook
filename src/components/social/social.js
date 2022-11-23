@@ -35,12 +35,12 @@ export const Social = (props) => {
                 method: 'GET'
             });
             const responseJson = await response.json();
-            console.log(responseJson);
+            // console.log(responseJson);
             setDataEvents({
                 cards: responseJson.result,
             });
         } catch (error) {
-            
+            console.log(error);
         }
     }
 
@@ -55,7 +55,7 @@ export const Social = (props) => {
                 method: 'GET'
             });
             const responseJson = await response.json();
-            console.log(responseJson);
+            // console.log(responseJson);
             setDataCommunity({
                 info: responseJson.result,
             });

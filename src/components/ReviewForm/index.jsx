@@ -13,9 +13,9 @@ export const ReviewForm = ({ exchange }) => {
 
     const sendData = async () => {
         if (rate !== 0 && description !== "") {
-            console.log(exchange);
-            console.log(rate);
-            console.log(description);
+            // console.log(exchange);
+            // console.log(rate);
+            // console.log(description);
             setWarning("hide");
             const stars = JSON.stringify({review:rate});
             try {
@@ -29,7 +29,7 @@ export const ReviewForm = ({ exchange }) => {
                     body:stars
                 });
                 const responseJson = await response.json();
-                console.log(responseJson);
+                // console.log(responseJson);
             } catch (error) {
                 console.error(error);
             }

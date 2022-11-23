@@ -17,8 +17,6 @@ export default function Events() {
 
     return (
         <>
-            {console.log(contentInput)}
-
             <Head> <title>Eventos</title> </Head>
             <Header />
             <SearchBar contentInput={contentInput} setContentInput={setContentInput} placeHolder="Buscar evento..." />
