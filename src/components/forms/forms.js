@@ -16,7 +16,11 @@ import {
     CONTENTIMAGE__div,
     DATA__file,
     ERROR__p,
-    CONTENTBUTTON__div
+    CONTENTBUTTON__div,
+    CONTENTFILE__div,
+    CONTENTTITLE__p,
+    TEXT__p,
+    CONTENTFILEFLEX__div
 } from './forms-style.js';
 
 /** ALERTS */
@@ -137,9 +141,14 @@ export const Forms = (props) => {
                         {errors.description?.type == 'required' && <ERROR__p>La descripción del libro es obligatoria</ERROR__p>}
                         {errors.description?.type == 'maxLength' && <ERROR__p>La descripción no debe contener más de 200 caracteres</ERROR__p>}
 
-                        <TEXT__label>Url de la fotografía del libro</TEXT__label>
-                        <DATA__input defaultValue={dataElement?dataElement.photo:null}  type="text" {...register("photo", { required: true })} />     
-                        {errors.photo?<ERROR__p>La fotografía del libro es obligatoria</ERROR__p>:null}
+                        <CONTENTFILE__div>
+                            <CONTENTTITLE__p>Fotografía del libro</CONTENTTITLE__p>
+                            <CONTENTFILEFLEX__div>
+                                <TEXT__p>Examinar</TEXT__p>
+                                <DATA__file defaultValue={dataElement?dataElement.photo:null}  type="file" {...register("photo", { required: true })} />     
+                            </CONTENTFILEFLEX__div>
+                            {errors.photo?<ERROR__p>La fotografía del libro es obligatoria</ERROR__p>:null}
+                        </CONTENTFILE__div>
                     </PRINCIPAL__section>                   
                 :type === "community" ?
                     <PRINCIPAL__section>

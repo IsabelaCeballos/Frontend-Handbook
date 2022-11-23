@@ -26,14 +26,36 @@ export const DATA__input = Styled.input`
     outline: none;
     box-sizing: border-box;
 `
+
+export const CONTENTFILE__div = Styled.div`
+    display: flex;
+`
+export const CONTENTTITLE__p = Styled.div`
+    font-size: ${GlobalStyle.FONT_SIZES.Mediana};
+    font-weight: 500;
+    margin: 0.6rem;
+`
+export const  TEXT__p = Styled.p`
+    font-size: ${GlobalStyle.FONT_SIZES.Mediana};
+    font-weight: 500;
+    text-align: center;
+`
+export const CONTENTFILEFLEX__div = Styled.p`
+    width: 40%;
+    background-color:  ${GlobalStyle.COLORS.Pancho};
+    margin: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    box-sizing: border-box;
+    position: relative;
+`
 export const DATA__file = Styled.input`
     width: 100%;
+    height: 100%;
     /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
-    margin-top: 0.4rem;
-    padding: 0.4rem 0.8rem;
     outline: none;
     box-sizing: border-box;
+    opacity: 0;
 `
 
 export const DATA__textArea = Styled.textarea`
