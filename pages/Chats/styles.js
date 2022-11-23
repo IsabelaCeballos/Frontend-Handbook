@@ -37,7 +37,7 @@ export const BAR_DES__section = Styled.section`
 `
 export const BTNS__div = Styled.div`
     position: absolute;
-    display: flex;
+    display: ${props => props.display === "none" ? "none" :"flex"};
     width: 14rem;
     height: 2rem;
     bottom: -25px;
@@ -57,6 +57,12 @@ export const BTNS__div = Styled.div`
     & button:last-child {
         background: ${GlobalStyles.COLORS.Pancho};
     }
+`
+export const BTNS_One__button = Styled.button`
+    display: ${props => props.display === "none" ? "none": "block"};
+`
+export const BTNS_Two__button = Styled.button`
+    display: ${props => props.display === "none" ? "none": "block"};
 `
 export const CONTAINER_MSJ__div = Styled.div`
     padding-top: 30%;

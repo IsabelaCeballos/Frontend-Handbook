@@ -13,18 +13,25 @@ export const HeaderProfile = ({ photoUser, nameUser }) => {
     return (
         <>
             {
-                photoUser ?
+                photoUser && router.pathname === "/profile" ?
+                    <>
                     <CONTAINER__div>
                         <Image src={photoUser} width={80} height={80} alt="Image user profile Google" />
                         <h3>{nameUser}</h3>
-                        <LOG_OUT__btn onClick={() => {
-                            Cookie.remove('JWT');
-                            router.push('/login');
-                        }}>
-                            Cerrar Sesión
-                        </LOG_OUT__btn>
                     </CONTAINER__div>
-                    : <p>Cargando...</p>
+                    <LOG_OUT__btn onClick={() => {
+                        Cookie.remove('JWT');
+                        router.push('/login');
+                        }}>
+                        Cerrar Sesión
+                    </LOG_OUT__btn>
+                    </>
+                : photoUser && router.pathname !== "/profile" ? 
+                    <CONTAINER__div>
+                        <Image src={photoUser} width={80} height={80} alt="Image user profile Google" />
+                        <h3>{nameUser}</h3>
+                    </CONTAINER__div>
+                : <p>Cargando...</p>
             }
         </>
     )

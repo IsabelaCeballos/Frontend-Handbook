@@ -38,8 +38,8 @@ export const Card = ({tipo, value, data, setData}) => {
         Swal.fire({
             icon: "success",
             title: 'Ahora eres un participante más...',
-            iconColor: '#FF8594',
-            confirmButtonColor: '#FF8594',
+            iconColor: '#75C0AA',
+            confirmButtonColor: '#75C0AA',
             confirmButtonText: 'OK',
             width: 400,
         })

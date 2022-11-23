@@ -12,7 +12,8 @@ import { CIRC__button } from '../../src/components/Buttons';
 
 import {
     BAR_DES__section, BAR_DES__div, BAR_TYPING__section,
-    CONTAINER_MSJ__div, BTNS__div, MSJ__div, BAR_TYPING__div, CONTAINER_FILL__div
+    CONTAINER_MSJ__div, BTNS__div, MSJ__div, BAR_TYPING__div,
+    CONTAINER_FILL__div, BTNS_One__button, BTNS_Two__button
 } from './styles';
 
 export default function Chatting() {
@@ -64,20 +65,20 @@ export default function Chatting() {
     }
 
     const bookNotExchange = async () => {
-        console.log("Cancelar exchange");
-        // try {
-        //     const response = await fetch(`http://localhost:3001/Exchange/${paramsRouter.split("_")[0]}`,{
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer ' + Cookies.get('JWT'),
-        //         },
-        //         method: 'DELETE'
-        //     });
-        //     const responseJson = await response.json();
-        // } catch (error) {
-        //     console.error(error);
-        // }
+        // console.log("Cancelar exchange");
+        try {
+            const response = await fetch(`http://localhost:3001/Exchange/${paramsRouter.split("_")[0]}`,{
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + Cookie.get('JWT'),
+                },
+                method: 'DELETE'
+            });
+            const responseJson = await response.json();
+        } catch (error) {
+            console.error(error);
+        }
         Router.push("/chats")
     }
     return (
@@ -103,8 +104,17 @@ export default function Chatting() {
                                             : userChat.Exchange[0].Id_User_One[0].name
                                     }</p>
                                     <BTNS__div>
-                                        <button onClick={() => Router.push(`../review/${userChat.Exchange[0]._id}`)} >Libro recibido</button>
-                                        <button onClick={() => bookNotExchange()}>No intercambiar</button>
+                                        <BTNS_One__button display ={
+                                            userChat.Exchange[0].Id_User_One[0]._id === userChat.myId ? 
+                                            (userChat.Exchange[0].reviewTwo !== 0) || (userChat.Exchange[0].reviewOne === 0 && userChat.Exchange[0].reviewTwo === 0) ? "block": "none"
+                                            : (userChat.Exchange[0].reviewOne !== 0) || (userChat.Exchange[0].reviewOne === 0 && userChat.Exchange[0].reviewTwo === 0) ? "block": "none"
+                                        } onClick={() => Router.push(`../review/${userChat.Exchange[0]._id}`)} >Libro recibido</BTNS_One__button>
+
+                                        <BTNS_Two__button display ={
+                                            userChat.Exchange[0].Id_User_One[0]._id === userChat.myId ? 
+                                            (userChat.Exchange[0].reviewOne === 0 && userChat.Exchange[0].reviewTwo !== 0) || (userChat.Exchange[0].reviewOne !== 0 && userChat.Exchange[0].reviewTwo ===0) ? "none": "block"
+                                            : (userChat.Exchange[0].reviewOne !== 0 && userChat.Exchange[0].reviewTwo === 0) || ((userChat.Exchange[0].reviewOne === 0 && userChat.Exchange[0].reviewTwo !== 0)) ? "none": "block"
+                                        } onClick={() => bookNotExchange()}>No intercambiar</BTNS_Two__button>
                                     </BTNS__div>
                                 </BAR_DES__section>
                             </BAR_DES__div>

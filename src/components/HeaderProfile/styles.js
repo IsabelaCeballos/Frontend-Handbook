@@ -22,12 +22,14 @@ export const CONTAINER__div = Styled.div`
 `
 
 export const LOG_OUT__btn = Styled.button`
+    display: block;
     color: ${GlobalStyles.COLORS.Negro};
     background: none;
     border: none;
     text-align: center;
     font-size: ${GlobalStyles.FONT_SIZES.Mediana};
     cursor: pointer;
+    margin: 1rem auto;
 
     &:hover {
         color: #c76868;

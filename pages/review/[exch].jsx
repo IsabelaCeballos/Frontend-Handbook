@@ -28,7 +28,7 @@ export default function Review() {
                     });
                     const responseJson = await response.json();
                     setDataExch({data:responseJson.result.Exchange[0], myId: responseJson.result.myId});
-                    // console.log({data:responseJson.result.Exchange[0], myId: responseJson.result.myId})
+                    // console.log({data:responseJson.result.Exchange[0], myId: responseJson.result.myId});
                 } catch (error) {
                     console.error(error);
                 }
