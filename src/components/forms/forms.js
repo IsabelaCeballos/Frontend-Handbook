@@ -33,34 +33,70 @@ export const Forms = (props) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const probando = async (e) => {
+        
+    }
     const onSubmit = async (data) => {
         if (type === "book") {
             let dataBook = {...data, state: "Disponible"}
+
+            console.log(data)
+            // console.log(formdata);
+            
+            let URL_BOOK = "";
             try {
-                const response = await fetch(`http://localhost:3001/${action === "edit" ? "bibliographic_material/" + dataElement._id : "new_bibliographic_material"}`, {
+                const formdata = new FormData();
+                formdata.append("image", data.photo[0]);
+                
+                const responseImgur = await fetch("https://api.imgur.com/3/image/", {
                     headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + Cookie.get('JWT'),
+                        "Authorization": "Client-ID 21f365b0b581148"
                     },
-                    method: action === "edit" ? "PUT" : "POST",
-                    body: JSON.stringify(dataBook)
+                    method: "post",
+                    body: formdata
                 })
-                const responseJson = await response.json();
-                // console.log(data);
-                // console.log(responseJson);
-            } catch (error) {
-                console.error(error);
-            }
-            Swal.fire({
-                icon: "success",
-                title: `Tú libro se ha ${action === "edit" ? "actualizado" : "publicado"} correctamente`,
-                iconColor: '#75C0AA',
-                confirmButtonColor: '#75C0AA',
-                confirmButtonText: 'OK',
-                width: 400,
-            })
-            router.push('/home');
+                const responseImg = await responseImgur.json();
+                URL_BOOK = responseImg.data.link;
+                console.log(URL_BOOK)
+                // fetch("https://api.imgur.com/3/image/", {
+                //     method: "post",
+                //     headers: {
+                //         Authorization: "Client-ID 21f365b0b581148"
+                //     },
+                //     body: formdata
+                // }).then(data => data.json()).then(data => {
+                //     console.log(data.data.link);
+                // })
+
+        } catch (error) {
+            console.log(error);
+        }
+
+            // try {
+            //     const response = await fetch(`http://localhost:3001/${action === "edit" ? "bibliographic_material/" + dataElement._id : "new_bibliographic_material"}`, {
+            //         headers: {
+            //             'Accept': 'application/json',
+            //             'Content-Type': 'application/json',
+            //             'Authorization': 'Bearer ' + Cookie.get('JWT'),
+            //         },
+            //         method: action === "edit" ? "PUT" : "POST",
+            //         body: JSON.stringify(dataBook)
+            //     })
+            //     const responseJson = await response.json();
+            //     // console.log(data);
+            //     // console.log(responseJson);
+            // } catch (error) {
+            //     console.error(error);
+            // }
+            // Swal.fire({
+            //     icon: "success",
+            //     title: `Tú libro se ha ${action === "edit" ? "actualizado" : "publicado"} correctamente`,
+            //     iconColor: '#75C0AA',
+            //     confirmButtonColor: '#75C0AA',
+            //     confirmButtonText: 'OK',
+            //     width: 400,
+            // })
+            // router.push('/home');
         } else if (type == "community") {
             try {
                 const response = await fetch(`http://localhost:3001/${action === "edit" ? "community/"+dataElement._id:"new_community"}`,{
@@ -141,14 +177,16 @@ export const Forms = (props) => {
                         {errors.description?.type == 'required' && <ERROR__p>La descripción del libro es obligatoria</ERROR__p>}
                         {errors.description?.type == 'maxLength' && <ERROR__p>La descripción no debe contener más de 200 caracteres</ERROR__p>}
 
-                        <CONTENTFILE__div>
+                        {/* <input onChange={(e)=>probando(e)} type="file" /> */}
+                        <input type="file" {...register("photo", { required: true })} />
+                        {/* <CONTENTFILE__div>
                             <CONTENTTITLE__p>Fotografía del libro</CONTENTTITLE__p>
                             <CONTENTFILEFLEX__div>
                                 <TEXT__p>Examinar</TEXT__p>
                                 <DATA__file defaultValue={dataElement?dataElement.photo:null}  type="file" {...register("photo", { required: true })} />     
                             </CONTENTFILEFLEX__div>
                             {errors.photo?<ERROR__p>La fotografía del libro es obligatoria</ERROR__p>:null}
-                        </CONTENTFILE__div>
+                        </CONTENTFILE__div> */}
                     </PRINCIPAL__section>                   
                 :type === "community" ?
                     <PRINCIPAL__section>
