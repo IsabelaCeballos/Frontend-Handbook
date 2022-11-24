@@ -29,6 +29,7 @@ export const DATA__input = Styled.input`
 
 export const CONTENTFILE__div = Styled.div`
     display: flex;
+    justify-content: center;
 `
 export const CONTENTTITLE__p = Styled.div`
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
@@ -40,22 +41,24 @@ export const  TEXT__p = Styled.p`
     font-weight: 500;
     text-align: center;
 `
-export const CONTENTFILEFLEX__div = Styled.p`
+export const CONTENTFILEFLEX__div = Styled.div`
     width: 40%;
-    background-color:  ${GlobalStyle.COLORS.Pancho};
+    background-color: rgba(234, 182, 134, 0.3);;
     margin: 0.4rem;
     padding: 0.4rem 0.8rem;
     box-sizing: border-box;
     position: relative;
+    border-radius: 2.8rem;
+    color: ${GlobalStyle.COLORS.Pancho};
 `
 export const DATA__file = Styled.input`
     width: 100%;
     height: 100%;
     /* font-family: ${GlobalStyle.TYPOGRAPIC.roboto}; */
-    font-size: ${GlobalStyle.FONT_SIZES.Mediana};
+    /* font-size: ${GlobalStyle.FONT_SIZES.Mediana}; */
     outline: none;
-    box-sizing: border-box;
     opacity: 0;
+    position: absolute;
 `
 
 export const DATA__textArea = Styled.textarea`
