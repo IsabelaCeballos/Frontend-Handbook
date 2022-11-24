@@ -163,13 +163,16 @@ export const Forms = (props) => {
                             {errors.description?.type == 'required' && <ERROR__p>La descripción del libro es obligatoria</ERROR__p>}
                             {errors.description?.type == 'maxLength' && <ERROR__p>La descripción no debe contener más de 200 caracteres</ERROR__p>}
 
-                            <input
-                                type="hidden"
-                                role="uploadcare-uploader"
-                                data-public-key="3a4fb1e5a73b7648e428"
-                                data-tabs="file camera url facebook gdrive gphotos"
-                                onChange={prueba}
-                            />
+                            <CONTENTFILE__div>
+                                <TEXT__label>Fotografía del libro</TEXT__label>
+                                <input
+                                    type="hidden"
+                                    role="uploadcare-uploader"
+                                    data-public-key="3a4fb1e5a73b7648e428"
+                                    data-tabs="file camera url facebook gdrive gphotos"
+                                    onChange={prueba}
+                                />
+                            </CONTENTFILE__div>
 
                         </PRINCIPAL__section>
                         : type === "community" ?

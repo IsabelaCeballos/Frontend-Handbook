@@ -29,7 +29,13 @@ export const DATA__input = Styled.input`
 
 export const CONTENTFILE__div = Styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 1rem;
+    box-sizing: border-box;
+    & button{
+        background-color: rgba(234, 182, 134, 0.8);
+    }
 `
 export const CONTENTTITLE__p = Styled.div`
     font-size: ${GlobalStyle.FONT_SIZES.Mediana};
@@ -43,7 +49,7 @@ export const  TEXT__p = Styled.p`
 `
 export const CONTENTFILEFLEX__div = Styled.div`
     width: 40%;
-    background-color: rgba(234, 182, 134, 0.3);;
+    background-color: rgba(234, 182, 134, 0.3);
     margin: 0.4rem;
     padding: 0.4rem 0.8rem;
     box-sizing: border-box;
