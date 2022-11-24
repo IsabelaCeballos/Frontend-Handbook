@@ -7,7 +7,7 @@ import { RECT__button } from '../Buttons/index.jsx';
 
 import logoInicio from '../../assets/logo_form.svg';
 
-import uploadcare from 'uploadcare-widget/uploadcare.lang.en.min.js'
+import { Widget } from "@uploadcare/react-widget";
 
 import Cookie from 'js-cookie';
 
@@ -37,18 +37,8 @@ export const Forms = (props) => {
     // console.log(type)
     const router = useRouter();
 
-    useEffect(() => {
-        
-        const widget = uploadcare.Widget('[role=uploadcare-uploader]');
-
-        widget.onUploadComplete(info => {
-            setUrlImage(info.cdnUrl);
-        });
-
-    }, [])
-
     const prueba = (ev) => {
-        console.log(ev);
+        setUrlImage(ev.originalUrl);
     }
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -163,11 +153,9 @@ export const Forms = (props) => {
                             {errors.description?.type == 'required' && <ERROR__p>La descripción del libro es obligatoria</ERROR__p>}
                             {errors.description?.type == 'maxLength' && <ERROR__p>La descripción no debe contener más de 200 caracteres</ERROR__p>}
 
-                            <input
-                                type="hidden"
-                                role="uploadcare-uploader"
-                                data-public-key="3a4fb1e5a73b7648e428"
-                                data-tabs="file camera url facebook gdrive gphotos"
+                            <Widget 
+                                publicKey="3a4fb1e5a73b7648e428"
+                                tabs="file camera url facebook gdrive gphotos"
                                 onChange={prueba}
                             />
 
