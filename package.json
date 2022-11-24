@@ -29,6 +29,7 @@
     "socket.io-client": "^4.5.3",
     "styled-components": "^5.3.6",
     "sweetalert2": "^11.6.8",
+    "uploadcare-widget": "^3.21.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
